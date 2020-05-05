@@ -1,19 +1,19 @@
-# GreenHub - Frontend
-Welcome to the GitHub repository of the GreenHub project's frontend!
+# Legato - Frontend
+Welcome to the GitHub repository of the Legato project's frontend!
 
 ## The project
 ### The idea
-The GreenHub project aims to create a community space where registered users can find each other based on their music
-preferences. With GreenHub, we can meet people with whom we have a good chance of finding a common voice. As our motto
+The Legato project aims to create a community space where registered users can find each other based on their music
+preferences. With Legato, we can meet people with whom we have a good chance of finding a common voice. As our motto
 holds: Music connects people
 
 ### The frontend
-This repository contains the source files of GreenHub's main user interface which displays the data served by GreenHub's
+This repository contains the source files of Legato's main user interface which displays the data served by Legato's
 backend. It is a one-pager responsive website which aims to provide the highest possible level of user experience made
 available by current state-of-the-art developer technologies.
 
 ### The technologies
-The frontend of the GreenHub social network were created with the following technologies:
+The frontend of the Legato social network were created with the following technologies:
  * Main web technologies:
     * **HTML**
     * **CSS**

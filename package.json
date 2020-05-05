@@ -1,11 +1,12 @@
 {
-  "name": "greenhub-frontend",
-  "description": "It is a one-pager responsive website which aims to provide the highest possible level of user experience made available by current state-of-the-art developer technologies. It is the frontend of the GreenHub social network.",
+  "name": "legato-frontend",
+  "description": "It is a one-pager responsive website which aims to provide the highest possible level of user experience made available by current state-of-the-art developer technologies. It is the frontend of the Legato social network.",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --port 3000"
   },
   "dependencies": {
     "@material-ui/core": "4.9.12",
+    "@material-ui/styles": "^4.9.13",
     "immer": "6.0.3",
     "prop-types": "15.7.2",
     "react": "16.13.1",
@@ -58,7 +59,9 @@
     "presets": [
       "babel-preset-react-app"
     ],
-    "plugins": ["@babel/plugin-proposal-throw-expressions"]
+    "plugins": [
+      "@babel/plugin-proposal-throw-expressions"
+    ]
   },
   "eslintConfig": {
     "extends": [
