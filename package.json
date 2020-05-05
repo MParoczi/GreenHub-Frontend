@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@material-ui/core": "4.9.12",
+    "@material-ui/styles": "^4.9.13",
     "immer": "6.0.3",
     "prop-types": "15.7.2",
     "react": "16.13.1",
@@ -58,7 +59,9 @@
     "presets": [
       "babel-preset-react-app"
     ],
-    "plugins": ["@babel/plugin-proposal-throw-expressions"]
+    "plugins": [
+      "@babel/plugin-proposal-throw-expressions"
+    ]
   },
   "eslintConfig": {
     "extends": [
