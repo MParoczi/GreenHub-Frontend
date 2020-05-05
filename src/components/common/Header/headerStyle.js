@@ -25,7 +25,7 @@ export const useStyle = makeStyles(theme => ({
   },
   title: {
     fontFamily: "Fredericka the Great",
-    color: "\t#0BDA51",
+    color: "#0BDA51",
     [theme.breakpoints.up("xs")]: {
       fontSize: "30px"
     },
