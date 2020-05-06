@@ -32,10 +32,10 @@ export default function TemporaryDrawer() {
     >
       <List>
         <ListItem>
-          <ListItemIcon>
+          <ListItemIcon className={classes.icon}>
             <InfoTwoToneIcon />
           </ListItemIcon>
-          <ListItemText primary="About" />
+          <ListItemText primary="About" className={classes.text} />
         </ListItem>
       </List>
       <Divider />
@@ -47,8 +47,13 @@ export default function TemporaryDrawer() {
       <Button onClick={toggleDrawer(true)}>
         <MenuTwoToneIcon className={classes.menuIcon} />
       </Button>
-      <Drawer anchor="right" open={state} onClose={toggleDrawer(false)}>
-        {list("right")}
+      <Drawer
+        anchor="right"
+        open={state}
+        onClose={toggleDrawer(false)}
+        classes={{ paper: classes.drawer }}
+      >
+        {list()}
       </Drawer>
     </div>
   );

@@ -18,5 +18,13 @@ export const useStyle = makeStyles(theme => ({
   },
   fullList: {
     width: "auto"
+  },
+  drawer: { background: "#383e42" },
+  text: {
+    textSize: "15px",
+    color: "#0BDA51"
+  },
+  icon: {
+    color: "#FFDB83"
   }
 }));
