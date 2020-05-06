@@ -13,18 +13,9 @@ export const useStyle = makeStyles(theme => ({
       fontSize: "50px"
     }
   },
-  list: {
-    width: 250
-  },
-  fullList: {
-    width: "auto"
-  },
+  list: { width: 250 },
+  fullList: { width: "auto" },
   drawer: { background: "#383e42" },
-  text: {
-    textSize: "15px",
-    color: "#0BDA51"
-  },
-  icon: {
-    color: "#FFDB83"
-  }
+  text: { color: "#0BDA51" },
+  icon: { color: "#FFDB83" }
 }));
