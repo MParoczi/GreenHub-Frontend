@@ -8,6 +8,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
 import MenuTwoToneIcon from "@material-ui/icons/MenuTwoTone";
+import VpnKeyTwoToneIcon from "@material-ui/icons/VpnKeyTwoTone";
+import LockOpenTwoToneIcon from "@material-ui/icons/LockOpenTwoTone";
 import { useStyle } from "./temporaryDrawerStyle";
 
 export default function TemporaryDrawer() {
@@ -33,12 +35,24 @@ export default function TemporaryDrawer() {
       <List>
         <ListItem>
           <ListItemIcon className={classes.icon}>
+            <VpnKeyTwoToneIcon />
+          </ListItemIcon>
+          <ListItemText primary="Login" className={classes.text} />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon className={classes.icon}>
+            <LockOpenTwoToneIcon />
+          </ListItemIcon>
+          <ListItemText primary="Registration" className={classes.text} />
+        </ListItem>
+        <Divider />
+        <ListItem>
+          <ListItemIcon className={classes.icon}>
             <InfoTwoToneIcon />
           </ListItemIcon>
-          <ListItemText primary="About" className={classes.text} />
+          <ListItemText primary="About" className={classes.text} classes={{}} />
         </ListItem>
       </List>
-      <Divider />
     </div>
   );
 
