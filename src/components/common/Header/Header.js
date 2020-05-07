@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -13,8 +14,12 @@ function Header() {
     <>
       <AppBar position="static" className={classes.root}>
         <Toolbar className={classes.toolbar}>
-          <img src={logo} alt="legato-logo" className={classes.logo} />
-          <Typography className={classes.title}>Legato</Typography>
+          <Link to="/">
+            <img src={logo} alt="legato-logo" className={classes.logo} />
+          </Link>
+          <Link to="/">
+            <Typography className={classes.title}>Legato</Typography>
+          </Link>
           <TemporaryDrawer />
         </Toolbar>
       </AppBar>
