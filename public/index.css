@@ -2,12 +2,9 @@ body{
     font-family: 'Open Sans', sans-serif;
     background: #FFDB83;
     margin:0;
-    padding:0;
-    height: 100%;
-}
-
-html, body, #app, #app>div {
-    height: 100%
+    position: relative;
+    padding-bottom: 58px;
+    min-height: 100vh;
 }
 
 a {

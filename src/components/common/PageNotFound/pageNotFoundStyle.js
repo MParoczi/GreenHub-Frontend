@@ -1,6 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyle = makeStyles(theme => ({
+  paper: {
+    padding: "5%",
+    width: "100%",
+    textAlign: "center"
+  },
   text: {
     color: "#383e42",
     [theme.breakpoints.up("xs")]: {
@@ -13,12 +18,6 @@ export const useStyle = makeStyles(theme => ({
       fontSize: "50px"
     }
   },
-  paper: {
-    marginTop: "10%",
-    padding: "5%",
-    width: "100%",
-    textAlign: "center"
-  },
   icon: {
     color: "#383e42",
     [theme.breakpoints.up("xs")]: {
@@ -30,5 +29,8 @@ export const useStyle = makeStyles(theme => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: "200px"
     }
+  },
+  row: {
+    marginBottom: "5%"
   }
 }));

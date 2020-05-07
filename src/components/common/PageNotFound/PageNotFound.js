@@ -8,7 +8,7 @@ function PageNotFound() {
 
   return (
     <Grid container spacing={0} justify={"center"}>
-      <Grid item xs={6}>
+      <Grid item xs={8} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.text}>
             Apologies, but we did not find the page you are looking for...

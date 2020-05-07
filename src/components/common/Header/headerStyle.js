@@ -3,7 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyle = makeStyles(theme => ({
   root: {
     display: "flex",
-    flexGrow: 1
+    flexGrow: 1,
+    marginBottom: "5%"
   },
   toolbar: {
     background: "#383e42",
