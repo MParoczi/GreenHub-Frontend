@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
   target: "web",
   devtool: "cheap-module-source-map",
-  entry: "./src/index",
+  entry: "./public/index",
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
@@ -23,8 +23,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
-      favicon: "src/favicon.ico"
+      template: "public/index.html",
+      favicon: "public/favicon.ico"
     })
   ],
   module: {
@@ -37,6 +37,17 @@ module.exports = {
       {
         test: /(\.css)$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(jpe?g|gif|png|svg)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000
+            }
+          }
+        ]
       }
     ]
   }
