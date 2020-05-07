@@ -58,7 +58,7 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <Link to="/about">
-          <ListItem>
+          <ListItem className={classes.listItem}>
             <ListItemIcon className={classes.icon}>
               <InfoTwoToneIcon />
             </ListItemIcon>
