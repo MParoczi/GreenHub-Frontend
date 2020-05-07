@@ -17,5 +17,10 @@ export const useStyle = makeStyles(theme => ({
   fullList: { width: "auto" },
   drawer: { background: "#383e42" },
   text: { color: "#0BDA51" },
-  icon: { color: "#FFDB83" }
+  icon: { color: "#FFDB83" },
+  listItem: {
+    "&:hover": {
+      background: "#676D72"
+    }
+  }
 }));
