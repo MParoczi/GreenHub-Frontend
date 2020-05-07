@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
@@ -46,12 +47,18 @@ export default function TemporaryDrawer() {
           <ListItemText primary="Registration" className={classes.text} />
         </ListItem>
         <Divider />
-        <ListItem>
-          <ListItemIcon className={classes.icon}>
-            <InfoTwoToneIcon />
-          </ListItemIcon>
-          <ListItemText primary="About" className={classes.text} classes={{}} />
-        </ListItem>
+        <Link to="/about">
+          <ListItem>
+            <ListItemIcon className={classes.icon}>
+              <InfoTwoToneIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary="About"
+              className={classes.text}
+              classes={{}}
+            />
+          </ListItem>
+        </Link>
       </List>
     </div>
   );
