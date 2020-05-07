@@ -9,3 +9,7 @@ body{
 html, body, #app, #app>div {
     height: 100%
 }
+
+a {
+    text-decoration: none;
+}
