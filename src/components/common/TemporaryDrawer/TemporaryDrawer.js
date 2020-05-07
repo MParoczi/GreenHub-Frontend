@@ -11,6 +11,7 @@ import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
 import MenuTwoToneIcon from "@material-ui/icons/MenuTwoTone";
 import VpnKeyTwoToneIcon from "@material-ui/icons/VpnKeyTwoTone";
 import LockOpenTwoToneIcon from "@material-ui/icons/LockOpenTwoTone";
+import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
 import { useStyle } from "./temporaryDrawerStyle";
 
 export default function TemporaryDrawer() {
@@ -34,6 +35,15 @@ export default function TemporaryDrawer() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
+        <Link to="/">
+          <ListItem className={classes.listItem}>
+            <ListItemIcon className={classes.icon}>
+              <HomeTwoToneIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" className={classes.text} />
+          </ListItem>
+        </Link>
+        <Divider />
         <ListItem>
           <ListItemIcon className={classes.icon}>
             <VpnKeyTwoToneIcon />
