@@ -5,6 +5,7 @@ import PageNotFound from "./common/PageNotFound/PageNotFound";
 import { useStyle } from "./appStyle";
 import About from "./About/About";
 import Footer from "./common/Footer/Footer";
+import Registration from "./Registration/Registration";
 
 function App() {
   const classes = useStyle();
@@ -13,6 +14,7 @@ function App() {
     <div className={classes.root}>
       <Header />
       <Switch>
+        <Route path="/registration" component={Registration} />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />
       </Switch>
