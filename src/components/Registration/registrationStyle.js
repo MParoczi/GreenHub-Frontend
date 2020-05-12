@@ -33,6 +33,8 @@ export const useStyle = makeStyles(theme => ({
     }
   },
   textField: {
+    marginBottom: "10px",
+    width: "100%",
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
       borderColor: "#383e42"
     },
