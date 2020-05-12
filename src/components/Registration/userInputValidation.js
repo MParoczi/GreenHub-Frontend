@@ -7,3 +7,12 @@ export function validateName(name) {
   else if (!regex.test(name)) return "Name is in invalid format";
   else return true;
 }
+
+export function validateEmail(email) {
+  // eslint-disable-next-line no-useless-escape
+  const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (!email) return "Email address is required";
+  else if (!regex.test(email)) return "Email address is in invalid format";
+  else return true;
+}
