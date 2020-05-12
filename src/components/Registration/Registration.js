@@ -46,6 +46,7 @@ function Registration() {
             handleSubmit={handleSubmit}
             handleChange={handleChange}
             errors={errors}
+            classes={classes}
           />
         </Paper>
       </Grid>

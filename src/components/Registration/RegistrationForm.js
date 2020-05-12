@@ -1,8 +1,8 @@
 import React from "react";
-import { TextField } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-function RegistrationForm({ handleSubmit, handleChange, errors }) {
+function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
   return (
     <form onSubmit={handleSubmit}>
       <TextField
@@ -13,7 +13,24 @@ function RegistrationForm({ handleSubmit, handleChange, errors }) {
         helperText={errors.firstName}
         variant="outlined"
         onChange={handleChange}
+        className={classes.textField}
       />
+      <TextField
+        name="lastName"
+        label="Last name"
+        error={errors.lastName !== undefined}
+        id="last-name-input"
+        helperText={errors.lastName}
+        variant="outlined"
+        onChange={handleChange}
+        className={classes.textField}
+      />
+      <input id="register-user" type="submit" className={classes.input} />
+      <label htmlFor="register-user">
+        <Button variant="contained" className={classes.button} component="span">
+          Register
+        </Button>
+      </label>
     </form>
   );
 }
@@ -21,7 +38,8 @@ function RegistrationForm({ handleSubmit, handleChange, errors }) {
 RegistrationForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default RegistrationForm;
