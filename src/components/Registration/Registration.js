@@ -4,7 +4,8 @@ import { useStyle } from "./registrationStyle";
 import {
   validateEmail,
   validateName,
-  validatePassword
+  validatePassword,
+  confirmPassword
 } from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
 
@@ -14,18 +15,21 @@ function Registration() {
   const [errors, setErrors] = useState({});
 
   const formIsValid = () => {
-    const { firstName, lastName, email, password } = user;
+    const { firstName, lastName, email, password, confirmedPassword } = user;
     const errors = {};
 
     const firstNameIsValid = validateName(firstName);
     const lastNameIsValid = validateName(lastName);
     const emailIsValid = validateEmail(email);
     const passwordIsValid = validatePassword(password);
+    const passwordIsConfirmed = confirmPassword(password, confirmedPassword);
 
     if (firstNameIsValid !== true) errors.firstName = firstNameIsValid;
     if (lastNameIsValid !== true) errors.lastName = lastNameIsValid;
     if (emailIsValid !== true) errors.email = emailIsValid;
     if (passwordIsValid !== true) errors.password = passwordIsValid;
+    if (passwordIsConfirmed !== true)
+      errors.confirmedPassword = passwordIsConfirmed;
 
     setErrors(errors);
 
