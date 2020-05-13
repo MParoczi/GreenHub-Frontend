@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyle = makeStyles(theme => ({
   paper: {
     padding: "5%",
-    width: "100%",
+    width: "auto",
     textAlign: "center"
   },
   title: {
@@ -63,7 +63,7 @@ export const useStyle = makeStyles(theme => ({
   },
   logos: {
     padding: "5%",
-    width: "100%",
+    width: "auto",
     display: "flex",
     justifyContent: "space-evenly"
   }

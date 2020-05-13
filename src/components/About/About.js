@@ -9,7 +9,7 @@ function About() {
   const classes = useStyle();
 
   return (
-    <Grid container spacing={0} justify={"center"}>
+    <Grid container spacing={0} justify="center">
       <Grid item xs={8} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>Legato</Typography>
