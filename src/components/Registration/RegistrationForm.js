@@ -1,9 +1,28 @@
 import React from "react";
-import { TextField, Button, Box, Grid } from "@material-ui/core";
+import {
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider
+} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
+import "date-fns";
+import {
+  TextField,
+  Button,
+  Box,
+  Grid,
+  FormHelperText,
+  FormControl
+} from "@material-ui/core";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
 
-function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
+function RegistrationForm({
+  handleSubmit,
+  handleChange,
+  errors,
+  classes,
+  user
+}) {
   return (
     <form onSubmit={handleSubmit}>
       <Grid container spacing={1} justify="center">
@@ -65,6 +84,34 @@ function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
             classes={classes}
           />
         </Grid>
+        <Grid item xs={12}>
+          <FormControl className={classes.textField}>
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <KeyboardDatePicker
+                autoOk
+                error={errors.birthDate}
+                variant="dialog"
+                inputVariant="outlined"
+                label="Birth date"
+                format="dd/MM/yyyy"
+                maxDate={
+                  new Date(
+                    new Date().setFullYear(new Date().getFullYear() - 14)
+                  )
+                }
+                maxDateMessage={""}
+                value={user.birthDate}
+                InputAdornmentProps={{ position: "start" }}
+                onChange={date =>
+                  handleChange({ target: { name: "birthDate", value: date } })
+                }
+              />
+            </MuiPickersUtilsProvider>
+            <FormHelperText error={errors.birthDate !== undefined}>
+              {errors.birthDate}
+            </FormHelperText>
+          </FormControl>
+        </Grid>
       </Grid>
       <Box>
         <input id="register-user" type="submit" className={classes.input} />
@@ -86,7 +133,8 @@ RegistrationForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 export default RegistrationForm;

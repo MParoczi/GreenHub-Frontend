@@ -69,6 +69,7 @@ function Registration() {
           <RegistrationForm
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            user={user}
             errors={errors}
             classes={classes}
           />
