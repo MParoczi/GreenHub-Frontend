@@ -31,3 +31,12 @@ export function confirmPassword(password, confirmedPassword) {
     return "The two passwords are not matching";
   return true;
 }
+
+export function validateBirthDate(birthDate) {
+  if (!birthDate) return "Birth date is required";
+  else if (
+    new Date(new Date().setFullYear(new Date().getFullYear() - 14)) < birthDate
+  )
+    return "You have to be 14 years old at least";
+  else return true;
+}
