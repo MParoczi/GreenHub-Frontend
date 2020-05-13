@@ -24,7 +24,9 @@ function Password({ handleChange, error, errorMessage, name, classes, label }) {
 
   return (
     <FormControl variant="outlined" className={classes.textField}>
-      <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
+      <InputLabel htmlFor="outlined-adornment-password" error={error}>
+        {label}
+      </InputLabel>
       <OutlinedInput
         name={name}
         label={label}
