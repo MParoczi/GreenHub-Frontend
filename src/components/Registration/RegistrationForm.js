@@ -1,6 +1,7 @@
 import React from "react";
 import { TextField, Button, Box, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
+import Password from "../common/Password/Password";
 
 function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
   return (
@@ -40,6 +41,16 @@ function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
             variant="outlined"
             onChange={handleChange}
             className={classes.textField}
+          />
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          <Password
+            handleChange={handleChange}
+            errors={errors}
+            name={"password"}
+            error={errors.password !== undefined}
+            errorMessage={errors.password || ""}
+            classes={classes}
           />
         </Grid>
       </Grid>
