@@ -24,3 +24,10 @@ export function validatePassword(password) {
   else if (!regex.test(password)) return "Password is in invalid format";
   else return true;
 }
+
+export function confirmPassword(password, confirmedPassword) {
+  if (!confirmedPassword) return "Please confirm your password";
+  else if (password !== confirmedPassword)
+    return "The two passwords are not matching";
+  return true;
+}
