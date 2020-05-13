@@ -54,6 +54,17 @@ function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
             classes={classes}
           />
         </Grid>
+        <Grid item xs={12} lg={6}>
+          <Password
+            label={"Confirm Password"}
+            handleChange={handleChange}
+            errors={errors}
+            name={"confirmedPassword"}
+            error={errors.confirmedPassword !== undefined}
+            errorMessage={errors.confirmedPassword || ""}
+            classes={classes}
+          />
+        </Grid>
       </Grid>
       <Box>
         <input id="register-user" type="submit" className={classes.input} />
