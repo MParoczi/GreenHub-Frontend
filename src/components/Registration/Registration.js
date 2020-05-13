@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Grid, Paper, Typography } from "@material-ui/core";
 import { useStyle } from "./registrationStyle";
-import { validateEmail, validateName } from "./userInputValidation";
+import {
+  validateEmail,
+  validateName,
+  validatePassword
+} from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
 
 function Registration() {
@@ -10,16 +14,18 @@ function Registration() {
   const [errors, setErrors] = useState({});
 
   const formIsValid = () => {
-    const { firstName, lastName, email } = user;
+    const { firstName, lastName, email, password } = user;
     const errors = {};
 
     const firstNameIsValid = validateName(firstName);
     const lastNameIsValid = validateName(lastName);
     const emailIsValid = validateEmail(email);
+    const passwordIsValid = validatePassword(password);
 
     if (firstNameIsValid !== true) errors.firstName = firstNameIsValid;
     if (lastNameIsValid !== true) errors.lastName = lastNameIsValid;
     if (emailIsValid !== true) errors.email = emailIsValid;
+    if (passwordIsValid !== true) errors.password = passwordIsValid;
 
     setErrors(errors);
 
