@@ -56,7 +56,7 @@ function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
         </Grid>
         <Grid item xs={12} lg={6}>
           <Password
-            label={"Confirm Password"}
+            label={"Confirm password"}
             handleChange={handleChange}
             errors={errors}
             name={"confirmedPassword"}
