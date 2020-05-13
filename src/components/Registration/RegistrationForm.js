@@ -13,8 +13,10 @@ import {
   FormHelperText,
   FormControl
 } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
+import { defaultMaterialTheme } from "./registrationStyle";
 
 function RegistrationForm({
   handleSubmit,
@@ -85,32 +87,34 @@ function RegistrationForm({
           />
         </Grid>
         <Grid item xs={12}>
-          <FormControl className={classes.textField}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <KeyboardDatePicker
-                autoOk
-                error={errors.birthDate}
-                variant="dialog"
-                inputVariant="outlined"
-                label="Birth date"
-                format="dd/MM/yyyy"
-                maxDate={
-                  new Date(
-                    new Date().setFullYear(new Date().getFullYear() - 14)
-                  )
-                }
-                maxDateMessage={""}
-                value={user.birthDate}
-                InputAdornmentProps={{ position: "start" }}
-                onChange={date =>
-                  handleChange({ target: { name: "birthDate", value: date } })
-                }
-              />
-            </MuiPickersUtilsProvider>
-            <FormHelperText error={errors.birthDate !== undefined}>
-              {errors.birthDate}
-            </FormHelperText>
-          </FormControl>
+          <ThemeProvider theme={defaultMaterialTheme}>
+            <FormControl className={classes.textField}>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardDatePicker
+                  autoOk
+                  error={errors.birthDate}
+                  variant="dialog"
+                  inputVariant="outlined"
+                  label="Birth date"
+                  format="dd/MM/yyyy"
+                  maxDate={
+                    new Date(
+                      new Date().setFullYear(new Date().getFullYear() - 14)
+                    )
+                  }
+                  maxDateMessage={""}
+                  value={user.birthDate}
+                  InputAdornmentProps={{ position: "start" }}
+                  onChange={date =>
+                    handleChange({ target: { name: "birthDate", value: date } })
+                  }
+                />
+              </MuiPickersUtilsProvider>
+              <FormHelperText error={errors.birthDate !== undefined}>
+                {errors.birthDate}
+              </FormHelperText>
+            </FormControl>
+          </ThemeProvider>
         </Grid>
       </Grid>
       <Box>
