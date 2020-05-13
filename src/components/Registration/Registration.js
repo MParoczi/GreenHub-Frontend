@@ -5,17 +5,27 @@ import {
   validateEmail,
   validateName,
   validatePassword,
-  confirmPassword
+  confirmPassword,
+  validateBirthDate
 } from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
 
 function Registration() {
   const classes = useStyle();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    birthDate: new Date(new Date().setFullYear(new Date().getFullYear() - 14))
+  });
   const [errors, setErrors] = useState({});
 
   const formIsValid = () => {
-    const { firstName, lastName, email, password, confirmedPassword } = user;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmedPassword,
+      birthDate
+    } = user;
     const errors = {};
 
     const firstNameIsValid = validateName(firstName);
@@ -23,6 +33,7 @@ function Registration() {
     const emailIsValid = validateEmail(email);
     const passwordIsValid = validatePassword(password);
     const passwordIsConfirmed = confirmPassword(password, confirmedPassword);
+    const birthDateIsValid = validateBirthDate(birthDate);
 
     if (firstNameIsValid !== true) errors.firstName = firstNameIsValid;
     if (lastNameIsValid !== true) errors.lastName = lastNameIsValid;
@@ -30,6 +41,7 @@ function Registration() {
     if (passwordIsValid !== true) errors.password = passwordIsValid;
     if (passwordIsConfirmed !== true)
       errors.confirmedPassword = passwordIsConfirmed;
+    if (birthDateIsValid !== true) errors.birthDate = birthDateIsValid;
 
     setErrors(errors);
 
