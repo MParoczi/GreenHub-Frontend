@@ -11,7 +11,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
 
-function Password({ handleChange, error, errorMessage, name, classes }) {
+function Password({ handleChange, error, errorMessage, name, classes, label }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleMouseDownPassword = event => {
@@ -24,9 +24,10 @@ function Password({ handleChange, error, errorMessage, name, classes }) {
 
   return (
     <FormControl variant="outlined" className={classes.textField}>
-      <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+      <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
       <OutlinedInput
         name={name}
+        label={label}
         id="outlined-adornment-password"
         type={showPassword ? "text" : "password"}
         onChange={handleChange}
@@ -43,7 +44,6 @@ function Password({ handleChange, error, errorMessage, name, classes }) {
             </IconButton>
           </InputAdornment>
         }
-        labelWidth={70}
       />
       <FormHelperText error={error}>{errorMessage}</FormHelperText>
     </FormControl>
@@ -55,7 +55,8 @@ Password.propTypes = {
   error: PropTypes.bool.isRequired,
   errorMessage: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  label: PropTypes.string.isRequired
 };
 
 export default Password;
