@@ -16,3 +16,11 @@ export function validateEmail(email) {
   else if (!regex.test(email)) return "Email address is in invalid format";
   else return true;
 }
+
+export function validatePassword(password) {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  if (!password) return "Password is required";
+  else if (!regex.test(password)) return "Password is in invalid format";
+  else return true;
+}
