@@ -45,6 +45,7 @@ function RegistrationForm({ handleSubmit, handleChange, errors, classes }) {
         </Grid>
         <Grid item xs={12} lg={6}>
           <Password
+            label={"Password"}
             handleChange={handleChange}
             errors={errors}
             name={"password"}
