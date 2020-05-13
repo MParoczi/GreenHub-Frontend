@@ -28,7 +28,7 @@ function Password({ handleChange, error, errorMessage, name, classes, label }) {
       <OutlinedInput
         name={name}
         label={label}
-        id="outlined-adornment-password"
+        id={name}
         type={showPassword ? "text" : "password"}
         onChange={handleChange}
         error={error}
