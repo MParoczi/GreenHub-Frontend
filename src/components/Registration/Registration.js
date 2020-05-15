@@ -9,6 +9,7 @@ import {
   validateBirthDate
 } from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
+import RegistrationGuide from "./RegistrationGuide";
 
 function Registration() {
   const classes = useStyle();
@@ -73,6 +74,7 @@ function Registration() {
             errors={errors}
             classes={classes}
           />
+          <RegistrationGuide />
         </Paper>
       </Grid>
     </Grid>
