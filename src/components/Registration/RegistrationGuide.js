@@ -14,28 +14,10 @@ import ImageIcon from "@material-ui/icons/Image";
 import WorkIcon from "@material-ui/icons/Work";
 import BeachAccessIcon from "@material-ui/icons/BeachAccess";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
-
-const useStyles = makeStyles(theme => ({
-  modal: {
-    display: "flex",
-    overflow: "scroll",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    margin: theme.spacing(0)
-  },
-  list: {
-    width: "100%"
-  }
-}));
+import { useStyle } from "./registrationGuideStyle";
 
 function RegistrationGuide() {
-  const classes = useStyles();
+  const classes = useStyle();
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
