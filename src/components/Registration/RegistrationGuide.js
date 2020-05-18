@@ -11,7 +11,7 @@ import {
   Divider
 } from "@material-ui/core";
 import PersonOutlineTwoToneIcon from "@material-ui/icons/PersonOutlineTwoTone";
-import WorkIcon from "@material-ui/icons/Work";
+import PeopleAltTwoToneIcon from "@material-ui/icons/PeopleAltTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import VpnKeyTwoToneIcon from "@material-ui/icons/VpnKeyTwoTone";
@@ -65,7 +65,7 @@ function RegistrationGuide() {
               <ListItem>
                 <ListItemAvatar>
                   <Avatar>
-                    <WorkIcon />
+                    <PeopleAltTwoToneIcon />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
