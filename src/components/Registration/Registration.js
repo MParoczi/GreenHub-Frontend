@@ -7,7 +7,8 @@ import {
   validateName,
   validatePassword,
   confirmPassword,
-  validateBirthDate
+  validateBirthDate,
+  validateCountry
 } from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
@@ -33,7 +34,8 @@ function Registration() {
       email,
       password,
       confirmedPassword,
-      birthDate
+      birthDate,
+      country
     } = user;
     const errors = {};
 
@@ -43,6 +45,7 @@ function Registration() {
     const passwordIsValid = validatePassword(password);
     const passwordIsConfirmed = confirmPassword(password, confirmedPassword);
     const birthDateIsValid = validateBirthDate(birthDate);
+    const countryIsValid = validateCountry(country, countries);
 
     if (firstNameIsValid !== true) errors.firstName = firstNameIsValid;
     if (lastNameIsValid !== true) errors.lastName = lastNameIsValid;
@@ -51,6 +54,7 @@ function Registration() {
     if (passwordIsConfirmed !== true)
       errors.confirmedPassword = passwordIsConfirmed;
     if (birthDateIsValid !== true) errors.birthDate = birthDateIsValid;
+    if (countryIsValid !== true) errors.country = countryIsValid;
 
     setErrors(errors);
 
@@ -60,6 +64,7 @@ function Registration() {
   const handleSubmit = event => {
     event.preventDefault();
     if (!formIsValid()) return;
+    console.log(user);
   };
 
   const handleChange = event => {
