@@ -81,13 +81,18 @@ function Registration() {
       <Grid item xs={7} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>Registration</Typography>
-          <RegistrationForm
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            user={user}
-            errors={errors}
-            classes={classes}
-          />
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <RegistrationForm
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              user={user}
+              countries={countries}
+              errors={errors}
+              classes={classes}
+            />
+          )}
           <RegistrationGuide />
         </Paper>
       </Grid>
