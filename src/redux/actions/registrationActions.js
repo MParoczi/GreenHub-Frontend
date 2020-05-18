@@ -1,5 +1,5 @@
 import * as types from "./actionTypes";
-import * as courseApi from "../../api/registrationApi";
+import * as registrationApi from "../../api/registrationApi";
 import { apiCallError, beginApiCall } from "./apiStatusActions";
 
 function loadCountriesSuccess(countries) {
@@ -9,7 +9,7 @@ function loadCountriesSuccess(countries) {
 export function loadCountries() {
   return function(dispatch) {
     dispatch(beginApiCall());
-    return courseApi
+    return registrationApi
       .getCountries()
       .then(countries => dispatch(loadCountriesSuccess(countries)))
       .catch(error => {
