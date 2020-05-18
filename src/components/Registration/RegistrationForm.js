@@ -124,7 +124,9 @@ function RegistrationForm({
             options={countries}
             getOptionLabel={option => option.name}
             onChange={(event, value) => {
-              handleChange({ target: { name: "country", value: (value || {}).name } });
+              handleChange({
+                target: { name: "country", value: (value || {}).name }
+              });
             }}
             renderInput={params => (
               <TextField
