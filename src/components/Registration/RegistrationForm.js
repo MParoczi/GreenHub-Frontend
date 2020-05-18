@@ -18,7 +18,6 @@ import { ThemeProvider } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
 import { defaultMaterialTheme } from "./registrationStyle";
-import { handleError } from "../../api/apiUtils";
 
 function RegistrationForm({
   handleSubmit,
@@ -124,6 +123,9 @@ function RegistrationForm({
             id="combo-box-demo"
             options={countries}
             getOptionLabel={option => option.name}
+            onChange={(event, value) => {
+              handleChange({ target: { name: "country", value: (value || {}).name } });
+            }}
             renderInput={params => (
               <TextField
                 {...params}
@@ -133,8 +135,11 @@ function RegistrationForm({
                 label="Home country"
                 variant="outlined"
                 className={classes.textField}
-                onChange={handleChange}
                 error={errors.country !== undefined}
+                inputProps={{
+                  ...params.inputProps,
+                  autoComplete: "new-password"
+                }}
               />
             )}
           />
