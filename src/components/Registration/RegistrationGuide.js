@@ -38,6 +38,7 @@ function RegistrationGuide() {
         aria-describedby="transition-modal-description"
         className={classes.modal}
         open={open}
+        onClick={handleClose}
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
