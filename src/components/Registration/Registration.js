@@ -13,6 +13,7 @@ import {
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
 import { loadCountries } from "../../redux/actions/registrationActions";
+import formatToBasicDate from "../../../utils/dateFormatter";
 
 function Registration() {
   const classes = useStyle();
@@ -64,7 +65,10 @@ function Registration() {
   const handleSubmit = event => {
     event.preventDefault();
     if (!formIsValid()) return;
-    console.log(user);
+    setUser(prevState => ({
+      ...prevState,
+      birthDate: formatToBasicDate(prevState.birthDate)
+    }));
   };
 
   const handleChange = event => {
