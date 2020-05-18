@@ -40,3 +40,10 @@ export function validateBirthDate(birthDate) {
     return "You have to be 14 years old at least";
   else return true;
 }
+
+export function validateCountry(country, countries) {
+  if (!country) return "Home country is required";
+  else if (!countries.map(country => country.name).includes(country))
+    return `There is no country such as ${country}`;
+  else return true;
+}
