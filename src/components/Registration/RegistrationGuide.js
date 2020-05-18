@@ -30,9 +30,9 @@ function RegistrationGuide() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        react-transition-group
-      </button>
+      <span onClick={handleOpen} className={classes.button}>
+        Registration Guide
+      </span>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
