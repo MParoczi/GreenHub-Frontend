@@ -10,7 +10,7 @@ import {
   Avatar,
   Divider
 } from "@material-ui/core";
-import ImageIcon from "@material-ui/icons/Image";
+import PersonOutlineTwoToneIcon from "@material-ui/icons/PersonOutlineTwoTone";
 import WorkIcon from "@material-ui/icons/Work";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
@@ -53,7 +53,7 @@ function RegistrationGuide() {
               <ListItem>
                 <ListItemAvatar>
                   <Avatar>
-                    <ImageIcon />
+                    <PersonOutlineTwoToneIcon />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
