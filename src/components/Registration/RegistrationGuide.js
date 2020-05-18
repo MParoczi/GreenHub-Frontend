@@ -14,6 +14,7 @@ import ImageIcon from "@material-ui/icons/Image";
 import WorkIcon from "@material-ui/icons/Work";
 import BeachAccessIcon from "@material-ui/icons/BeachAccess";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
+import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import { useStyle } from "./registrationGuideStyle";
 
 function RegistrationGuide() {
@@ -100,7 +101,7 @@ function RegistrationGuide() {
               <ListItem>
                 <ListItemAvatar>
                   <Avatar>
-                    <BeachAccessIcon />
+                    <CakeTwoToneIcon />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
