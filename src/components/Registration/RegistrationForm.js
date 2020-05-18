@@ -94,7 +94,7 @@ function RegistrationForm({
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
                   autoOk
-                  error={errors.birthDate}
+                  error={errors.birthDate !== undefined}
                   variant="dialog"
                   inputVariant="outlined"
                   label="Birth date"
