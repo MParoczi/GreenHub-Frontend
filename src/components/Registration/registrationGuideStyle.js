@@ -2,7 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyle = makeStyles(theme => ({
   modal: {
-    display: "flex",
+    [theme.breakpoints.up("xs")]: {
+      display: "block"
+    },
+    [theme.breakpoints.up("sm")]: {
+      display: "flex"
+    },
     overflow: "scroll",
     alignItems: "center",
     justifyContent: "center"
@@ -12,7 +17,7 @@ export const useStyle = makeStyles(theme => ({
     border: "2px solid #0BDA51",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    margin: theme.spacing(0)
+    margin: theme.spacing(4, 4)
   },
   list: {
     width: "100%"
