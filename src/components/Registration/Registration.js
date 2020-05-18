@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Grid, Paper, Typography } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Grid, Paper, Typography, CircularProgress } from "@material-ui/core";
 import { useStyle } from "./registrationStyle";
 import {
   validateEmail,
@@ -10,13 +11,20 @@ import {
 } from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
+import { loadCountries } from "../../redux/actions/registrationActions";
 
 function Registration() {
   const classes = useStyle();
+
   const [user, setUser] = useState({
     birthDate: new Date(new Date().setFullYear(new Date().getFullYear() - 14))
   });
   const [errors, setErrors] = useState({});
+
+  const countries = useSelector(state => state.countries);
+  const loading = useSelector(state => state.apiCallsInProgress);
+
+  const dispatch = useDispatch();
 
   const formIsValid = () => {
     const {
@@ -61,6 +69,12 @@ function Registration() {
       [name]: value
     }));
   };
+
+  useEffect(() => {
+    if (countries.length === 0) {
+      dispatch(loadCountries());
+    }
+  }, []);
 
   return (
     <Grid container spacing={0} justify="center">
