@@ -1,4 +1,4 @@
-export function validateName(name) {
+function validateName(name) {
   const regex = RegExp(
     "^[A-Za-z\u{00C0}-\u{00FF}][A-Za-z\u{00C0}-\u{00FF}'-]+([ A-Za-z\u{00C0}-\u{00FF}][A-Za-z\u{00C0}-\u{00FF}'-]+)*$"
   );
@@ -8,7 +8,7 @@ export function validateName(name) {
   else return true;
 }
 
-export function validateEmail(email) {
+function validateEmail(email) {
   // eslint-disable-next-line no-useless-escape
   const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -17,7 +17,7 @@ export function validateEmail(email) {
   else return true;
 }
 
-export function validatePassword(password) {
+function validatePassword(password) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   if (!password) return "Password is required";
@@ -25,14 +25,14 @@ export function validatePassword(password) {
   else return true;
 }
 
-export function confirmPassword(password, confirmedPassword) {
+function confirmPassword(password, confirmedPassword) {
   if (!confirmedPassword) return "Please confirm your password";
   else if (password !== confirmedPassword)
     return "The two passwords are not matching";
   return true;
 }
 
-export function validateBirthDate(birthDate) {
+function validateBirthDate(birthDate) {
   if (!birthDate) return "Birth date is required";
   else if (
     new Date(new Date().setFullYear(new Date().getFullYear() - 14)) < birthDate
@@ -41,9 +41,52 @@ export function validateBirthDate(birthDate) {
   else return true;
 }
 
-export function validateCountry(country, countries) {
+function validateCountry(country, countries) {
   if (!country) return "Home country is required";
   else if (!countries.map(country => country.name).includes(country))
     return `There is no country such as ${country}`;
   else return true;
+}
+
+function validateGenres(genres) {
+  if (!genres || genres.length === 0)
+    return "Favorite music genres are required";
+  else return true;
+}
+
+export default function formIsValid(user, countries, setErrors) {
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmedPassword,
+    birthDate,
+    country,
+    genres
+  } = user;
+  const errors = {};
+
+  const firstNameIsValid = validateName(firstName);
+  const lastNameIsValid = validateName(lastName);
+  const emailIsValid = validateEmail(email);
+  const passwordIsValid = validatePassword(password);
+  const passwordIsConfirmed = confirmPassword(password, confirmedPassword);
+  const birthDateIsValid = validateBirthDate(birthDate);
+  const countryIsValid = validateCountry(country, countries);
+  const genresAreValid = validateGenres(genres);
+
+  if (firstNameIsValid !== true) errors.firstName = firstNameIsValid;
+  if (lastNameIsValid !== true) errors.lastName = lastNameIsValid;
+  if (emailIsValid !== true) errors.email = emailIsValid;
+  if (passwordIsValid !== true) errors.password = passwordIsValid;
+  if (passwordIsConfirmed !== true)
+    errors.confirmedPassword = passwordIsConfirmed;
+  if (birthDateIsValid !== true) errors.birthDate = birthDateIsValid;
+  if (countryIsValid !== true) errors.country = countryIsValid;
+  if (genresAreValid !== true) errors.genres = genresAreValid;
+
+  setErrors(errors);
+
+  return Object.keys(errors).length === 0;
 }
