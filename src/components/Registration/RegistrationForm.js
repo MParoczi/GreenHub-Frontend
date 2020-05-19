@@ -146,6 +146,36 @@ function RegistrationForm({
             )}
           />
         </Grid>
+        <Grid item xs={12}>
+          <Autocomplete
+            multiple
+            id="tags-outlined"
+            options={process.env.MUSIC_GENRES}
+            getOptionLabel={option => option}
+            filterSelectedOptions
+            onChange={(event, value) => {
+              handleChange({
+                target: { name: "genres", value: value }
+              });
+            }}
+            renderInput={params => (
+              <TextField
+                {...params}
+                name="genres"
+                id="genres-input"
+                variant="outlined"
+                label="Favorite genres"
+                className={classes.textField}
+                error={errors.genres !== undefined}
+                helperText={errors.genres}
+                inputProps={{
+                  ...params.inputProps,
+                  autoComplete: "new-password"
+                }}
+              />
+            )}
+          />
+        </Grid>
       </Grid>
       <Box>
         <input id="register-user" type="submit" className={classes.input} />
