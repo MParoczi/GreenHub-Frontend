@@ -15,6 +15,8 @@ import PeopleAltTwoToneIcon from "@material-ui/icons/PeopleAltTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import VpnKeyTwoToneIcon from "@material-ui/icons/VpnKeyTwoTone";
+import PublicTwoToneIcon from "@material-ui/icons/PublicTwoTone";
+import MusicNoteTwoToneIcon from "@material-ui/icons/MusicNoteTwoTone";
 import { useStyle } from "./registrationGuideStyle";
 
 function RegistrationGuide() {
@@ -107,6 +109,30 @@ function RegistrationGuide() {
                 <ListItemText
                   primary="Birth date"
                   secondary="You have to be at least 14 years old to be able to register"
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>
+                    <PublicTwoToneIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Home country"
+                  secondary="Home country is where you consider yourself to be at home"
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>
+                    <MusicNoteTwoToneIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Favorite genres"
+                  secondary="You can choose between multiple music genres that most fit your taste"
                 />
               </ListItem>
             </List>
