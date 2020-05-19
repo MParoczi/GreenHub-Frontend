@@ -22,3 +22,16 @@ export function loadCountries() {
       });
   };
 }
+
+export function registerUser(user) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return registrationApi
+      .registerUser(user)
+      .then(registeredUser => dispatch(registerUserSuccess(registeredUser)))
+      .catch(error => {
+        dispatch(apiCallError());
+        throw error;
+      });
+  };
+}
