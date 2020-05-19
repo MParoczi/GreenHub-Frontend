@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -25,6 +26,31 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
       favicon: "public/favicon.ico"
+    }),
+    new webpack.DefinePlugin({
+      "process.env.MUSIC_GENRES": JSON.stringify([
+        "Pop",
+        "Electronic/Dance",
+        "Hip-Hop",
+        "Rock",
+        "Jazz",
+        "R&B",
+        "Soul",
+        "Indie",
+        "Classical",
+        "Metal",
+        "Latin",
+        "Reggae",
+        "Blues",
+        "Funk",
+        "Punk",
+        "Country",
+        "Folk & acoustic",
+        "Desi",
+        "Arab",
+        "Afro",
+        "K-Pop"
+      ])
     })
   ],
   module: {
