@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createMuiTheme } from "@material-ui/core";
 
 export const useStyle = makeStyles(theme => ({
   paper: {
@@ -46,3 +46,21 @@ export const useStyle = makeStyles(theme => ({
     }
   }
 }));
+
+export const defaultMaterialTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#383e42"
+    }
+  },
+  overrides: {
+    MuiPickersDay: {
+      day: {
+        color: "#0BDA51"
+      },
+      dayDisabled: {
+        color: "#123617"
+      }
+    }
+  }
+});

@@ -1,56 +1,37 @@
-import React, { useState } from "react";
-import { Grid, Paper, Typography } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Grid, Paper, Typography, CircularProgress } from "@material-ui/core";
 import { useStyle } from "./registrationStyle";
-import {
-  validateEmail,
-  validateName,
-  validatePassword,
-  confirmPassword,
-  validateBirthDate
-} from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
+import RegistrationGuide from "./RegistrationGuide";
+import {
+  loadCountries,
+  registerUser
+} from "../../redux/actions/registrationActions";
+import formIsValid from "./userInputValidation";
+import formatToBasicDate from "../../../utils/dateFormatter";
 
 function Registration() {
   const classes = useStyle();
+
   const [user, setUser] = useState({
     birthDate: new Date(new Date().setFullYear(new Date().getFullYear() - 14))
   });
   const [errors, setErrors] = useState({});
 
-  const formIsValid = () => {
-    const {
-      firstName,
-      lastName,
-      email,
-      password,
-      confirmedPassword,
-      birthDate
-    } = user;
-    const errors = {};
+  const countries = useSelector(state => state.countries);
+  const loading = useSelector(state => state.apiCallsInProgress);
 
-    const firstNameIsValid = validateName(firstName);
-    const lastNameIsValid = validateName(lastName);
-    const emailIsValid = validateEmail(email);
-    const passwordIsValid = validatePassword(password);
-    const passwordIsConfirmed = confirmPassword(password, confirmedPassword);
-    const birthDateIsValid = validateBirthDate(birthDate);
-
-    if (firstNameIsValid !== true) errors.firstName = firstNameIsValid;
-    if (lastNameIsValid !== true) errors.lastName = lastNameIsValid;
-    if (emailIsValid !== true) errors.email = emailIsValid;
-    if (passwordIsValid !== true) errors.password = passwordIsValid;
-    if (passwordIsConfirmed !== true)
-      errors.confirmedPassword = passwordIsConfirmed;
-    if (birthDateIsValid !== true) errors.birthDate = birthDateIsValid;
-
-    setErrors(errors);
-
-    return Object.keys(errors).length === 0;
-  };
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (!formIsValid()) return;
+    if (!formIsValid(user, countries, setErrors)) return;
+    setUser(prevState => ({
+      ...prevState,
+      birthDate: formatToBasicDate(prevState.birthDate)
+    }));
+    dispatch(registerUser(user));
   };
 
   const handleChange = event => {
@@ -61,18 +42,30 @@ function Registration() {
     }));
   };
 
+  useEffect(() => {
+    if (countries.length === 0) {
+      dispatch(loadCountries());
+    }
+  }, []);
+
   return (
     <Grid container spacing={0} justify="center">
       <Grid item xs={7} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>Registration</Typography>
-          <RegistrationForm
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            user={user}
-            errors={errors}
-            classes={classes}
-          />
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <RegistrationForm
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+              user={user}
+              countries={countries}
+              errors={errors}
+              classes={classes}
+            />
+          )}
+          <RegistrationGuide />
         </Paper>
       </Grid>
     </Grid>

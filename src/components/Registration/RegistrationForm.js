@@ -13,15 +13,19 @@ import {
   FormHelperText,
   FormControl
 } from "@material-ui/core";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import { ThemeProvider } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
+import { defaultMaterialTheme } from "./registrationStyle";
 
 function RegistrationForm({
   handleSubmit,
   handleChange,
   errors,
   classes,
-  user
+  user,
+  countries
 }) {
   return (
     <form onSubmit={handleSubmit}>
@@ -85,32 +89,92 @@ function RegistrationForm({
           />
         </Grid>
         <Grid item xs={12}>
-          <FormControl className={classes.textField}>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <KeyboardDatePicker
-                autoOk
-                error={errors.birthDate}
-                variant="dialog"
-                inputVariant="outlined"
-                label="Birth date"
-                format="dd/MM/yyyy"
-                maxDate={
-                  new Date(
-                    new Date().setFullYear(new Date().getFullYear() - 14)
-                  )
-                }
-                maxDateMessage={""}
-                value={user.birthDate}
-                InputAdornmentProps={{ position: "start" }}
-                onChange={date =>
-                  handleChange({ target: { name: "birthDate", value: date } })
-                }
+          <ThemeProvider theme={defaultMaterialTheme}>
+            <FormControl className={classes.textField}>
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <KeyboardDatePicker
+                  autoOk
+                  error={errors.birthDate !== undefined}
+                  variant="dialog"
+                  inputVariant="outlined"
+                  label="Birth date"
+                  format="dd/MM/yyyy"
+                  maxDate={
+                    new Date(
+                      new Date().setFullYear(new Date().getFullYear() - 14)
+                    )
+                  }
+                  maxDateMessage={""}
+                  value={user.birthDate}
+                  InputAdornmentProps={{ position: "start" }}
+                  onChange={date =>
+                    handleChange({ target: { name: "birthDate", value: date } })
+                  }
+                />
+              </MuiPickersUtilsProvider>
+              <FormHelperText error={errors.birthDate !== undefined}>
+                {errors.birthDate}
+              </FormHelperText>
+            </FormControl>
+          </ThemeProvider>
+        </Grid>
+        <Grid item xs={12}>
+          <Autocomplete
+            id="combo-box-demo"
+            options={countries}
+            getOptionLabel={option => option.name}
+            onChange={(event, value) => {
+              handleChange({
+                target: { name: "country", value: (value || {}).name }
+              });
+            }}
+            renderInput={params => (
+              <TextField
+                {...params}
+                name="country"
+                id="country-input"
+                helperText={errors.country}
+                label="Home country"
+                variant="outlined"
+                className={classes.textField}
+                error={errors.country !== undefined}
+                inputProps={{
+                  ...params.inputProps,
+                  autoComplete: "new-password"
+                }}
               />
-            </MuiPickersUtilsProvider>
-            <FormHelperText error={errors.birthDate !== undefined}>
-              {errors.birthDate}
-            </FormHelperText>
-          </FormControl>
+            )}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Autocomplete
+            multiple
+            id="tags-outlined"
+            options={process.env.MUSIC_GENRES}
+            getOptionLabel={option => option}
+            filterSelectedOptions
+            onChange={(event, value) => {
+              handleChange({
+                target: { name: "genres", value: value }
+              });
+            }}
+            renderInput={params => (
+              <TextField
+                {...params}
+                name="genres"
+                id="genres-input"
+                variant="outlined"
+                label="Favorite genres"
+                className={classes.textField}
+                error={errors.genres !== undefined}
+                helperText={errors.genres}
+                inputProps={{
+                  ...params.inputProps,
+                  autoComplete: "new-password"
+                }}
+              />
+            )}
+          />
         </Grid>
       </Grid>
       <Box>
@@ -134,7 +198,8 @@ RegistrationForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  countries: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default RegistrationForm;
