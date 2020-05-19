@@ -6,6 +6,10 @@ function loadCountriesSuccess(countries) {
   return { type: types.LOAD_COUNTRIES_SUCCESS, countries };
 }
 
+function registerUserSuccess(course) {
+  return { type: types.REGISTER_USER_SUCCESS, course };
+}
+
 export function loadCountries() {
   return function(dispatch) {
     dispatch(beginApiCall());
