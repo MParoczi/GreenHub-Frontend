@@ -12,7 +12,10 @@ import {
 } from "./userInputValidation";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
-import { loadCountries } from "../../redux/actions/registrationActions";
+import {
+  loadCountries,
+  registerUser
+} from "../../redux/actions/registrationActions";
 import formatToBasicDate from "../../../utils/dateFormatter";
 
 function Registration() {
@@ -69,6 +72,7 @@ function Registration() {
       ...prevState,
       birthDate: formatToBasicDate(prevState.birthDate)
     }));
+    dispatch(registerUser(user));
   };
 
   const handleChange = event => {
