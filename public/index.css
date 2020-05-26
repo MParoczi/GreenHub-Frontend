@@ -12,6 +12,7 @@ a {
 }
 
 .Toastify__toast-container {
+    font-weight: bold;
     color: #383e42;
 }
 
