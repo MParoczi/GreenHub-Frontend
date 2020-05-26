@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Grid, Paper, Typography, CircularProgress } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
 import { useStyle } from "./registrationStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
@@ -10,6 +11,7 @@ import {
 } from "../../redux/actions/registrationActions";
 import formIsValid from "./userInputValidation";
 import formatToBasicDate from "../../../utils/dateFormatter";
+import { toast } from "react-toastify";
 
 function Registration() {
   const classes = useStyle();
@@ -23,15 +25,22 @@ function Registration() {
   const loading = useSelector(state => state.apiCallsInProgress);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = event => {
     event.preventDefault();
     if (!formIsValid(user, countries, setErrors)) return;
-    setUser(prevState => ({
-      ...prevState,
-      birthDate: formatToBasicDate(prevState.birthDate)
-    }));
-    dispatch(registerUser(user));
+    const birthDate = formatToBasicDate(user.birthDate);
+
+    dispatch(registerUser({ ...user, birthDate: birthDate }))
+      .then(response => {
+        toast.success(response.registeredUser.message);
+        history.push("/");
+      })
+      .catch(response => {
+        toast.error(response.message);
+        history.push("/");
+      });
   };
 
   const handleChange = event => {
