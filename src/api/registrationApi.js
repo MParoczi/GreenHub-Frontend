@@ -7,7 +7,7 @@ export function getCountries() {
 }
 
 export function registerUser(user) {
-  return fetch("URL", {
+  return fetch("https://localhost:5001/api/account/register", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
