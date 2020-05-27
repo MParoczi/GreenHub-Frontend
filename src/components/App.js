@@ -6,6 +6,8 @@ import { useStyle } from "./appStyle";
 import About from "./About/About";
 import Footer from "./common/Footer/Footer";
 import Registration from "./Registration/Registration";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const classes = useStyle();
@@ -19,6 +21,7 @@ function App() {
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
+      <ToastContainer autoClose={6000} hideProgressBar />
     </div>
   );
 }
