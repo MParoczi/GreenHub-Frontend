@@ -51,6 +51,9 @@ export const defaultMaterialTheme = createMuiTheme({
   palette: {
     primary: {
       main: "#383e42"
+    },
+    secondary: {
+      main: "#0BDA51"
     }
   },
   overrides: {
