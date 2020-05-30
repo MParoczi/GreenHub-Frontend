@@ -8,6 +8,7 @@ import Footer from "./common/Footer/Footer";
 import Registration from "./Registration/Registration";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Login from "./Login/Login";
 
 function App() {
   const classes = useStyle();
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/registration" component={Registration} />
+        <Route path="/login" component={Login} />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />
       </Switch>
