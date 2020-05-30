@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import {
@@ -9,6 +9,7 @@ import LoginForm from "./LoginForm";
 import { useSelector } from "react-redux";
 
 function Login() {
+  const [errors, setErrors] = useState({});
   const loading = useSelector(state => state.apiCallsInProgress);
   const classes = useStyle();
 
@@ -22,7 +23,7 @@ function Login() {
               <CircularProgress color="secondary" />
             </ThemeProvider>
           ) : (
-            <LoginForm />
+            <LoginForm classes={classes} errors={errors} />
           )}
         </Paper>
       </Grid>
