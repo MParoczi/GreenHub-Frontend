@@ -9,20 +9,31 @@ import {
   useStyle
 } from "../common/registrationLoginCommon/registrationLoginStyle";
 import LoginForm from "./LoginForm";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { loginFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
+import { loginUser } from "../../redux/actions/loginActions";
+import { toast } from "react-toastify";
 
 function Login() {
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState({});
   const loading = useSelector(state => state.apiCallsInProgress);
   const classes = useStyle();
+  const dispatch = useDispatch();
 
   const handleSubmit = event => {
     event.preventDefault();
     if (!loginFormIsValid(user, setErrors)) return;
-    console.log(user);
+    dispatch(loginUser(user))
+      .then(response => {
+        toast.success(response.loggedInUser.message);
+        history.push("/");
+      })
+      .catch(response => {
+        toast.error(response.message);
+        history.push("/");
+      });
   };
 
   const handleChange = event => {
