@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
-import { defaultMaterialTheme, useStyle } from "./registrationStyle";
+import {
+  defaultMaterialTheme,
+  useStyle
+} from "../common/style/registrationStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
 import {
