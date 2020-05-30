@@ -17,7 +17,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { ThemeProvider } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
-import { defaultMaterialTheme } from "../common/style/registrationStyle";
+import { defaultMaterialTheme } from "../common/style/registrationLoginStyle";
 
 function RegistrationForm({
   handleSubmit,

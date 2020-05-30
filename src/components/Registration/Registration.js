@@ -5,7 +5,7 @@ import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
 import {
   defaultMaterialTheme,
   useStyle
-} from "../common/style/registrationStyle";
+} from "../common/style/registrationLoginStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
 import {
