@@ -32,12 +32,14 @@ function ListItems({ classes, toggleDrawer }) {
           </ListItem>
         </Link>
         <Divider />
-        <ListItem>
-          <ListItemIcon className={classes.icon}>
-            <VpnKeyTwoTone />
-          </ListItemIcon>
-          <ListItemText primary="Login" className={classes.text} />
-        </ListItem>
+        <Link to="/login">
+          <ListItem className={classes.listItem}>
+            <ListItemIcon className={classes.icon}>
+              <VpnKeyTwoTone />
+            </ListItemIcon>
+            <ListItemText primary="Login" className={classes.text} />
+          </ListItem>
+        </Link>
         <Link to="/registration">
           <ListItem className={classes.listItem}>
             <ListItemIcon className={classes.icon}>
