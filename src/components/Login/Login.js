@@ -7,7 +7,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import {
   defaultMaterialTheme,
   useStyle
-} from "../common/style/registrationLoginStyle";
+} from "../common/registrationLoginCommon/registrationLoginStyle";
 import LoginForm from "./LoginForm";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";

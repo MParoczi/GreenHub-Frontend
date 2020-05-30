@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import {
   defaultMaterialTheme,
   useStyle
-} from "../common/style/registrationLoginStyle";
+} from "../common/registrationLoginCommon/registrationLoginStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
 import {
