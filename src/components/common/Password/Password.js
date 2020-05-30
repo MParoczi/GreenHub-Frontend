@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import {
-  IconButton,
-  OutlinedInput,
-  InputLabel,
-  InputAdornment,
-  FormControl,
-  FormHelperText
-} from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import PropTypes from "prop-types";
