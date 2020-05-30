@@ -1,5 +1,7 @@
 import React from "react";
-import { Grid, Paper, Typography } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import { useStyle } from "./aboutStyle";
 import reactLogo from "../../../public/images/react.png";
 import reduxLogo from "../../../public/images/redux.png";
