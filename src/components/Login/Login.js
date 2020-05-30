@@ -7,6 +7,7 @@ import {
 } from "../common/style/registrationLoginStyle";
 import LoginForm from "./LoginForm";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [errors, setErrors] = useState({});
@@ -25,6 +26,11 @@ function Login() {
           ) : (
             <LoginForm classes={classes} errors={errors} />
           )}
+          <Link to="/registration">
+            <span className={classes.registrationRedirect}>
+              Haven`t got an account yet? Register here!
+            </span>
+          </Link>
         </Paper>
       </Grid>
     </Grid>
