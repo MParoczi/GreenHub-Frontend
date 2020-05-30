@@ -1,6 +1,7 @@
 import React from "react";
 import ListItems from "./ListItems";
-import { Drawer, Button } from "@material-ui/core";
+import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
 import { useStyle } from "./temporaryDrawerStyle";
 import MenuTwoToneIcon from "@material-ui/icons/MenuTwoTone";
 
