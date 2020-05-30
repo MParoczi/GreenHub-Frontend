@@ -50,10 +50,10 @@ function LoginForm({ handleSubmit, handleChange, errors, classes }) {
 }
 
 LoginForm.propTypes = {
-  handleSubmit: PropTypes.func,
-  handleChange: PropTypes.func,
-  errors: PropTypes.object,
-  classes: PropTypes.object
+  handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default LoginForm;
