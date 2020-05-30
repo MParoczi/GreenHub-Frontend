@@ -54,7 +54,7 @@ function validateGenres(genres) {
   else return true;
 }
 
-export default function formIsValid(user, countries, setErrors) {
+export default function registrationFormIsValid(user, countries, setErrors) {
   const {
     firstName,
     lastName,

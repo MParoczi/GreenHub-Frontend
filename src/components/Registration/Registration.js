@@ -15,7 +15,7 @@ import {
   loadCountries,
   registerUser
 } from "../../redux/actions/registrationActions";
-import formIsValid from "./userInputValidation";
+import registrationFormIsValid from "./userInputValidation";
 import formatToBasicDate from "../../../utils/dateFormatter";
 import { toast } from "react-toastify";
 import { ThemeProvider } from "@material-ui/styles";
@@ -36,7 +36,7 @@ function Registration() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (!formIsValid(user, countries, setErrors)) return;
+    if (!registrationFormIsValid(user, countries, setErrors)) return;
     const birthDate = formatToBasicDate(user.birthDate);
 
     dispatch(registerUser({ ...user, birthDate: birthDate }))
