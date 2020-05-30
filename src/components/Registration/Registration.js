@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 import {
   defaultMaterialTheme,
   useStyle
