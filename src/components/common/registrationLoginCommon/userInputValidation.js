@@ -90,3 +90,18 @@ export function registrationFormIsValid(user, countries, setErrors) {
 
   return Object.keys(errors).length === 0;
 }
+
+export function loginFormIsValid(user, setErrors) {
+  const { email, password } = user;
+  const errors = {};
+
+  const emailIsValid = validateEmail(email);
+  const passwordIsValid = validatePassword(password);
+
+  if (emailIsValid !== true) errors.email = emailIsValid;
+  if (passwordIsValid !== true) errors.password = passwordIsValid;
+
+  setErrors(errors);
+
+  return Object.keys(errors).length === 0;
+}
