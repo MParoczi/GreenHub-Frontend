@@ -1,5 +1,8 @@
 import React from "react";
-import { Box, Button, Grid, TextField } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
 
