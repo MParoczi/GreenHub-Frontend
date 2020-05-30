@@ -15,6 +15,7 @@ function LoginForm({ handleSubmit, handleChange, errors, classes }) {
             name="email"
             label="Email"
             id="email-input"
+            error={errors.email !== undefined}
             helperText={errors.email}
             variant="outlined"
             onChange={handleChange}
