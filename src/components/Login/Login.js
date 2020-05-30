@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 import { ThemeProvider } from "@material-ui/styles";
 import {
   defaultMaterialTheme,
