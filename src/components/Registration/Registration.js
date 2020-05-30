@@ -15,7 +15,7 @@ import {
   loadCountries,
   registerUser
 } from "../../redux/actions/registrationActions";
-import registrationFormIsValid from "./userInputValidation";
+import { registrationFormIsValid } from "./userInputValidation";
 import formatToBasicDate from "../../../utils/dateFormatter";
 import { toast } from "react-toastify";
 import { ThemeProvider } from "@material-ui/styles";
