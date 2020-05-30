@@ -11,11 +11,27 @@ import {
 import LoginForm from "./LoginForm";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { loginFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
 
 function Login() {
+  const [user, setUser] = useState({});
   const [errors, setErrors] = useState({});
   const loading = useSelector(state => state.apiCallsInProgress);
   const classes = useStyle();
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    if (!loginFormIsValid(user, setErrors)) return;
+    console.log(user);
+  };
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setUser(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
     <Grid container spacing={0} justify="center">
@@ -27,7 +43,12 @@ function Login() {
               <CircularProgress color="secondary" />
             </ThemeProvider>
           ) : (
-            <LoginForm classes={classes} errors={errors} />
+            <LoginForm
+              classes={classes}
+              errors={errors}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+            />
           )}
           <Link to="/registration">
             <span className={classes.registrationRedirect}>
