@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import SentimentDissatisfiedTwoToneIcon from "@material-ui/icons/SentimentDissatisfiedTwoTone";
 import { useStyle } from "./pageNotFoundStyle";
