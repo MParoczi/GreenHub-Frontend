@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, TextField } from "@material-ui/core";
+import { Box, Button, Grid, TextField } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
 
@@ -30,6 +30,18 @@ function LoginForm({ handleSubmit, handleChange, errors, classes }) {
           />
         </Grid>
       </Grid>
+      <Box>
+        <input id="login-user" type="submit" className={classes.input} />
+        <label htmlFor="login-user">
+          <Button
+            variant="contained"
+            className={classes.button}
+            component="span"
+          >
+            Login
+          </Button>
+        </label>
+      </Box>
     </form>
   );
 }
