@@ -44,6 +44,22 @@ export const useStyle = makeStyles(theme => ({
     "& .MuiFormLabel-root.Mui-error": {
       color: "#FF005D"
     }
+  },
+  registrationRedirect: {
+    cursor: "pointer",
+    color: "#383e42",
+    "&:hover": {
+      color: "#676D72"
+    },
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "8px"
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "9px"
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "10px"
+    }
   }
 }));
 
