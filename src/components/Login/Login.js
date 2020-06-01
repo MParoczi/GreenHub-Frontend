@@ -10,7 +10,7 @@ import {
 } from "../common/registrationLoginCommon/registrationLoginStyle";
 import LoginForm from "./LoginForm";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { loginFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
 import { loginUser } from "../../redux/actions/loginActions";
 import { toast } from "react-toastify";
@@ -21,6 +21,7 @@ function Login() {
   const loading = useSelector(state => state.apiCallsInProgress);
   const classes = useStyle();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = event => {
     event.preventDefault();
