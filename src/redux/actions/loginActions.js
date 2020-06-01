@@ -2,8 +2,8 @@ import * as types from "./actionTypes";
 import * as loginApi from "../../api/loginApi";
 import { apiCallError, beginApiCall } from "./apiStatusActions";
 
-function loginUserSuccess(registeredUser) {
-  return { type: types.LOGIN_USER_SUCCESS, registeredUser };
+function loginUserSuccess(loggedInUser) {
+  return { type: types.LOGIN_USER_SUCCESS, loggedInUser };
 }
 
 export function loginUser(user) {
