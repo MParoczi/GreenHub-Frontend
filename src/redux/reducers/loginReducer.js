@@ -5,9 +5,12 @@ export default function loginReducer(
   state = initialState.loggedInUser,
   action
 ) {
-  if (action.type === types.LOGIN_USER_SUCCESS) {
-    return action.loggedInUser.payload;
-  } else {
-    return state;
+  switch (action.type) {
+    case types.LOGIN_USER_SUCCESS:
+      return action.loggedInUser.payload;
+    case types.LOGOUT_USER_SUCCESS:
+      return {};
+    default:
+      return state;
   }
 }
