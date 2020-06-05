@@ -10,8 +10,12 @@ export function logoutUser(user, history) {
   return function(dispatch) {
     dispatch(beginApiCall());
     return logoutApi
-      .logoutUser(user, history)
-      .then(loggedOutUser => dispatch(loggedOutSuccess(loggedOutUser)))
+      .logoutUser(user)
+      .then(loggedOutUser => {
+        dispatch(loggedOutSuccess(loggedOutUser));
+        window.localStorage.setItem("logout", Date.now().toString());
+        history.push("/login");
+      })
       .catch(error => {
         dispatch(apiCallError());
         throw error;
