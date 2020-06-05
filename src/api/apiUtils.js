@@ -11,7 +11,6 @@ export async function handleResponse(response, dispatch, user) {
     if (Object.keys(user).length !== 0) {
       dispatch(logoutUser(user));
     }
-    history.push("/login");
     throw new Error(error.message);
   }
   throw new Error("Network response was not ok.");
