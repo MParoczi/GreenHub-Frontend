@@ -1,4 +1,6 @@
-export async function handleResponse(response) {
+import { logoutUser } from "../redux/actions/logoutActions";
+
+export async function handleResponse(response, dispatch, user) {
   if (response.ok) return response.json();
   if (response.status === 400) {
     const error = await response.json();
@@ -6,6 +8,9 @@ export async function handleResponse(response) {
   }
   if (response.status === 401) {
     const error = await response.json();
+    if (Object.keys(user).length !== 0) {
+      dispatch(logoutUser(user));
+    }
     history.push("/login");
     throw new Error(error.message);
   }
