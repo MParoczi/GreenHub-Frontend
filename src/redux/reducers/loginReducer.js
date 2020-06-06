@@ -10,6 +10,8 @@ export default function loginReducer(
       return action.loggedInUser.payload;
     case types.LOGOUT_USER_SUCCESS:
       return {};
+    case types.GET_CURRENT_USER_SUCCESS:
+      return action.loggedInUser.payload;
     default:
       return state;
   }
