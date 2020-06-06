@@ -1,19 +1,22 @@
 import { logoutUser } from "../redux/actions/logoutActions";
 
 export async function handleResponse(response, dispatch, user, history) {
-  if (response.ok) return response.json();
-  if (response.status === 400) {
-    const error = await response.json();
-    throw new Error(error.message);
+  let error;
+  switch (response.status) {
+    case 200:
+      return response.json();
+    case 400:
+      error = await response.json();
+      throw new Error(error.message);
+    case 401:
+      error = await response.json();
+      if (Object.keys(user).length !== 0) {
+        dispatch(logoutUser(user, history));
+      }
+      throw new Error(error.message);
+    default:
+      throw new Error("Network response was not ok.");
   }
-  if (response.status === 401) {
-    const error = await response.json();
-    if (Object.keys(user).length !== 0) {
-      dispatch(logoutUser(user, history));
-    }
-    throw new Error(error.message);
-  }
-  throw new Error("Network response was not ok.");
 }
 
 export function handleError(error) {
