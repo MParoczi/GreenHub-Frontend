@@ -7,10 +7,11 @@ import { useStyle } from "./appStyle";
 import About from "./About/About";
 import Footer from "./common/Footer/Footer";
 import Registration from "./Registration/Registration";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./Login/Login";
 import { logoutUser } from "../redux/actions/logoutActions";
+import { getCurrentUser } from "../redux/actions/getCurrentUserActions";
 
 function App() {
   const classes = useStyle();
@@ -30,6 +31,20 @@ function App() {
   useEffect(() => {
     window.addEventListener("storage", syncLogout);
   }, [window, syncLogout]);
+
+  useEffect(() => {
+    dispatch(getCurrentUser(user, history))
+      .then(response => {
+        toast.success(response.loggedInUser.message);
+        history.push("/");
+      })
+      .catch(() => {
+        if (Object.keys(user).length !== 0) {
+          dispatch(logoutUser(user));
+        }
+        history.push("/login");
+      });
+  }, []);
 
   return (
     <div className={classes.root}>
