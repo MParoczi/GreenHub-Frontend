@@ -6,7 +6,7 @@ function loggedOutSuccess(loggedOutUser) {
   return { type: types.LOGOUT_USER_SUCCESS, loggedOutUser };
 }
 
-export function logoutUser(user, history) {
+export function logoutUser(user) {
   return function(dispatch) {
     dispatch(beginApiCall());
     return logoutApi
@@ -14,7 +14,6 @@ export function logoutUser(user, history) {
       .then(loggedOutUser => {
         dispatch(loggedOutSuccess(loggedOutUser));
         window.localStorage.setItem("logout", Date.now().toString());
-        history.push("/login");
       })
       .catch(error => {
         dispatch(apiCallError());

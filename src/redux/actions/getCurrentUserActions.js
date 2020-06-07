@@ -6,11 +6,11 @@ function getCurrentUserSuccess(loggedInUser) {
   return { type: types.GET_CURRENT_USER_SUCCESS, loggedInUser };
 }
 
-export function getCurrentUser(user, history) {
+export function getCurrentUser() {
   return function(dispatch) {
     dispatch(beginApiCall());
     return currentUserApi
-      .getCurrentUser(dispatch, user, history)
+      .getCurrentUser()
       .then(loggedInUser => dispatch(getCurrentUserSuccess(loggedInUser)))
       .catch(error => {
         dispatch(apiCallError());
