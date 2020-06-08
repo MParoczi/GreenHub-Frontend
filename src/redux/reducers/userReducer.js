@@ -1,10 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export default function loginReducer(
-  state = initialState.loggedInUser,
-  action
-) {
+export default function userReducer(state = initialState.loggedInUser, action) {
   switch (action.type) {
     case types.LOGIN_USER_SUCCESS:
       return action.loggedInUser.payload;
