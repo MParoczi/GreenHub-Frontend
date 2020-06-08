@@ -2,7 +2,7 @@
   "name": "legato-frontend",
   "description": "It is a one-pager responsive website which aims to provide the highest possible level of user experience made available by current state-of-the-art developer technologies. It is the frontend of the Legato social network.",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000"
+    "start": "webpack-dev-server --config webpack.config.dev.js"
   },
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
