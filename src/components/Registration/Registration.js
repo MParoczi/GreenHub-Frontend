@@ -11,10 +11,7 @@ import {
 } from "../common/registrationLoginCommon/registrationLoginStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
-import {
-  loadCountries,
-  registerUser
-} from "../../redux/actions/registrationActions";
+import { loadCountries, registerUser } from "../../redux/actions/userActions";
 import { registrationFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
 import formatToBasicDate from "../../../utils/dateFormatter";
 import { toast } from "react-toastify";

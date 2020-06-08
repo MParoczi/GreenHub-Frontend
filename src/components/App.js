@@ -10,9 +10,11 @@ import Registration from "./Registration/Registration";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./Login/Login";
-import { logoutUser } from "../redux/actions/logoutActions";
-import { getCurrentUser } from "../redux/actions/getCurrentUserActions";
-import { refreshToken } from "../redux/actions/refreshTokenActions";
+import {
+  logoutUser,
+  getCurrentUser,
+  refreshToken
+} from "../redux/actions/userActions";
 
 function App() {
   const classes = useStyle();

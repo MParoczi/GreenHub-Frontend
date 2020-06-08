@@ -12,7 +12,7 @@ import LoginForm from "./LoginForm";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { loginFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
-import { loginUser } from "../../redux/actions/loginActions";
+import { loginUser } from "../../redux/actions/userActions";
 import { toast } from "react-toastify";
 
 function Login() {
