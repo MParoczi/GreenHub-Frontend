@@ -12,6 +12,8 @@ export default function loginReducer(
       return {};
     case types.GET_CURRENT_USER_SUCCESS:
       return action.loggedInUser.payload;
+    case types.REFRESH_TOKEN_SUCCESS:
+      return { ...state, token: action.token.payload };
     default:
       return state;
   }
