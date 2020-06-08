@@ -55,7 +55,6 @@ function App() {
         new Date(user.token.expiration).setMinutes(
           new Date(user.token.expiration).getMinutes() - 1
         ) - Date.now();
-      console.log("Refresh");
       setTimeout(dispatch, expiration, refreshToken());
     }
   }, [user]);
