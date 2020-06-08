@@ -5,19 +5,17 @@ import {
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import "date-fns";
-import {
-  TextField,
-  Button,
-  Box,
-  Grid,
-  FormHelperText,
-  FormControl
-} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { ThemeProvider } from "@material-ui/styles";
 import PropTypes from "prop-types";
 import Password from "../common/Password/Password";
-import { defaultMaterialTheme } from "./registrationStyle";
+import { defaultMaterialTheme } from "../common/registrationLoginCommon/registrationLoginStyle";
 
 function RegistrationForm({
   handleSubmit,

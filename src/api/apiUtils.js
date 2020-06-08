@@ -1,10 +1,17 @@
 export async function handleResponse(response) {
-  if (response.ok) return response.json();
-  if (response.status === 400) {
-    const error = await response.json();
-    throw new Error(error.message);
+  let error;
+  switch (response.status) {
+    case 200:
+      return response.json();
+    case 400:
+      error = await response.json();
+      throw new Error(error.message);
+    case 401:
+      error = await response.json();
+      throw new Error(error.message);
+    default:
+      throw new Error("Network response was not ok.");
   }
-  throw new Error("Network response was not ok.");
 }
 
 export function handleError(error) {

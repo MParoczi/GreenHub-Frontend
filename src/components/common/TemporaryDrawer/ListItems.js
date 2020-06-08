@@ -1,19 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Divider
-} from "@material-ui/core";
-import {
-  HomeTwoTone,
-  VpnKeyTwoTone,
-  LockOpenTwoTone,
-  InfoTwoTone
-} from "@material-ui/icons";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import HomeTwoTone from "@material-ui/icons/HomeTwoTone";
+import VpnKeyTwoTone from "@material-ui/icons/VpnKeyTwoTone";
+import LockOpenTwoTone from "@material-ui/icons/LockOpenTwoTone";
+import InfoTwoTone from "@material-ui/icons/InfoTwoTone";
 
 function ListItems({ classes, toggleDrawer }) {
   return (
@@ -32,12 +28,14 @@ function ListItems({ classes, toggleDrawer }) {
           </ListItem>
         </Link>
         <Divider />
-        <ListItem>
-          <ListItemIcon className={classes.icon}>
-            <VpnKeyTwoTone />
-          </ListItemIcon>
-          <ListItemText primary="Login" className={classes.text} />
-        </ListItem>
+        <Link to="/login">
+          <ListItem className={classes.listItem}>
+            <ListItemIcon className={classes.icon}>
+              <VpnKeyTwoTone />
+            </ListItemIcon>
+            <ListItemText primary="Login" className={classes.text} />
+          </ListItem>
+        </Link>
         <Link to="/registration">
           <ListItem className={classes.listItem}>
             <ListItemIcon className={classes.icon}>

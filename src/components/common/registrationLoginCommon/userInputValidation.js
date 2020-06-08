@@ -54,7 +54,7 @@ function validateGenres(genres) {
   else return true;
 }
 
-export default function formIsValid(user, countries, setErrors) {
+export function registrationFormIsValid(user, countries, setErrors) {
   const {
     firstName,
     lastName,
@@ -85,6 +85,21 @@ export default function formIsValid(user, countries, setErrors) {
   if (birthDateIsValid !== true) errors.birthDate = birthDateIsValid;
   if (countryIsValid !== true) errors.country = countryIsValid;
   if (genresAreValid !== true) errors.genres = genresAreValid;
+
+  setErrors(errors);
+
+  return Object.keys(errors).length === 0;
+}
+
+export function loginFormIsValid(user, setErrors) {
+  const { email, password } = user;
+  const errors = {};
+
+  const emailIsValid = validateEmail(email);
+  const passwordIsValid = validatePassword(password);
+
+  if (emailIsValid !== true) errors.email = emailIsValid;
+  if (passwordIsValid !== true) errors.password = passwordIsValid;
 
   setErrors(errors);
 

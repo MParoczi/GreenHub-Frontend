@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { CircularProgress, Grid, Paper, Typography } from "@material-ui/core";
-import { defaultMaterialTheme, useStyle } from "./registrationStyle";
+import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import {
+  defaultMaterialTheme,
+  useStyle
+} from "../common/registrationLoginCommon/registrationLoginStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
-import {
-  loadCountries,
-  registerUser
-} from "../../redux/actions/registrationActions";
-import formIsValid from "./userInputValidation";
+import { loadCountries, registerUser } from "../../redux/actions/userActions";
+import { registrationFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
 import formatToBasicDate from "../../../utils/dateFormatter";
 import { toast } from "react-toastify";
 import { ThemeProvider } from "@material-ui/styles";
@@ -30,7 +33,7 @@ function Registration() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (!formIsValid(user, countries, setErrors)) return;
+    if (!registrationFormIsValid(user, countries, setErrors)) return;
     const birthDate = formatToBasicDate(user.birthDate);
 
     dispatch(registerUser({ ...user, birthDate: birthDate }))
