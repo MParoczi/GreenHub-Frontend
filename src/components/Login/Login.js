@@ -61,11 +61,13 @@ function Login() {
               handleChange={handleChange}
             />
           )}
-          <Link to="/registration">
-            <span className={classes.registrationRedirect}>
-              Haven`t got an account yet? Register here!
-            </span>
-          </Link>
+          <div>
+            <Link to="/registration">
+              <span className={classes.registrationRedirect}>
+                Haven`t got an account yet? Register here!
+              </span>
+            </Link>
+          </div>
         </Paper>
       </Grid>
     </Grid>
