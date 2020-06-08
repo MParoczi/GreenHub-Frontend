@@ -1,0 +1,39 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #FFDB83;
+    margin: 0;
+    position: relative;
+    padding-bottom: 58px;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.Toastify__toast-container {
+    font-weight: bold;
+    color: #383e42;
+}
+
+
+.Toastify__toast--default {
+    background: #fff;
+    color: #aaa;
+}
+
+.Toastify__toast--info {
+    background: #00ABFF;
+}
+
+.Toastify__toast--success {
+    background: #0BDA51;
+}
+
+.Toastify__toast--warning {
+    background: #FF7400;
+}
+
+.Toastify__toast--error {
+    background: #FF004C;
+}
