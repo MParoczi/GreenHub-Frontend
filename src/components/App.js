@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Login from "./Login/Login";
 import { logoutUser } from "../redux/actions/logoutActions";
 import { getCurrentUser } from "../redux/actions/getCurrentUserActions";
+import { refreshToken } from "../redux/actions/refreshTokenActions";
 
 function App() {
   const classes = useStyle();
@@ -45,6 +46,17 @@ function App() {
         history.push("/login");
       });
   }, []);
+
+  useEffect(() => {
+    if (Object.keys(user).length !== 0) {
+      let expiration =
+        new Date(user.token.expiration).setMinutes(
+          new Date(user.token.expiration).getMinutes() - 1
+        ) - Date.now();
+      console.log("Refresh");
+      setTimeout(dispatch, expiration, refreshToken());
+    }
+  }, [user]);
 
   return (
     <div className={classes.root}>
