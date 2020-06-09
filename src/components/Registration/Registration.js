@@ -43,7 +43,6 @@ function Registration() {
       })
       .catch(response => {
         toast.error(response.message);
-        history.push("/");
       });
   };
 
