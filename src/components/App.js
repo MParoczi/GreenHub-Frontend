@@ -29,10 +29,10 @@ function App() {
   const syncLogout = useCallback(
     event => {
       if (event.key === "logout") {
-        dispatch(logoutUser(user, history));
+        dispatch(logoutUser(user));
       }
     },
-    [dispatch, user, history]
+    [dispatch, user]
   );
 
   useEffect(() => {
