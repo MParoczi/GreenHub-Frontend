@@ -15,43 +15,57 @@ import {
   getCurrentUser,
   refreshToken
 } from "../redux/actions/userActions";
-import { ThemeProvider } from "@material-ui/styles";
-import { defaultMaterialTheme } from "./common/registrationLoginCommon/registrationLoginStyle";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 function App() {
   const classes = useStyle();
   const history = useHistory();
   const user = useSelector(state => state.loggedInUser);
-  const loading = useSelector(state => state.apiCallsInProgress);
   const dispatch = useDispatch();
+
+  const logout = useCallback(() => {
+    dispatch(logoutUser(user));
+  }, [dispatch, user]);
 
   const syncLogout = useCallback(
     event => {
       if (event.key === "logout") {
-        dispatch(logoutUser(user));
+        logout();
       }
     },
-    [dispatch, user]
+    [logout]
   );
+
+  const redirectToHome = useCallback(() => {
+    history.push("/");
+  }, [history]);
+
+  const redirectToLogin = useCallback(() => {
+    history.push("/login");
+  }, [history]);
+
+  const getUser = useCallback(() => {
+    if (Object.keys(user).length === 0) {
+      dispatch(getCurrentUser(user))
+        .then(response => {
+          toast.success(response.loggedInUser.message);
+          redirectToHome();
+        })
+        .catch(() => {
+          if (Object.keys(user).length !== 0) {
+            logout();
+          }
+          redirectToLogin();
+        });
+    }
+  }, [dispatch, logout, redirectToHome, redirectToLogin, user]);
 
   useEffect(() => {
     window.addEventListener("storage", syncLogout);
-  }, [window, syncLogout]);
+  }, [syncLogout]);
 
   useEffect(() => {
-    dispatch(getCurrentUser(user, history))
-      .then(response => {
-        toast.success(response.loggedInUser.message);
-        history.push("/");
-      })
-      .catch(() => {
-        if (Object.keys(user).length !== 0) {
-          dispatch(logoutUser(user));
-        }
-        history.push("/login");
-      });
-  }, []);
+    getUser();
+  }, [getUser]);
 
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
@@ -61,23 +75,17 @@ function App() {
         ) - Date.now();
       setTimeout(dispatch, expiration, refreshToken());
     }
-  }, [user]);
+  }, [dispatch, user]);
 
   return (
     <div className={classes.root}>
       <Header />
-      {loading ? (
-        <ThemeProvider theme={defaultMaterialTheme}>
-          <CircularProgress color="secondary" />
-        </ThemeProvider>
-      ) : (
-        <Switch>
-          <Route path="/registration" component={Registration} />
-          <Route path="/login" component={Login} />
-          <Route path="/about" component={About} />
-          <Route component={PageNotFound} />
-        </Switch>
-      )}
+      <Switch>
+        <Route path="/registration" component={Registration} />
+        <Route path="/login" component={Login} />
+        <Route path="/about" component={About} />
+        <Route component={PageNotFound} />
+      </Switch>
       <Footer />
       <ToastContainer autoClose={6000} hideProgressBar />
     </div>
