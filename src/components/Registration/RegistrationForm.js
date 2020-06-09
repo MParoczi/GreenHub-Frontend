@@ -25,6 +25,30 @@ function RegistrationForm({
   user,
   countries
 }) {
+  const genres = [
+    "Pop",
+    "Electronic/Dance",
+    "Hip-Hop",
+    "Rock",
+    "Jazz",
+    "R&B",
+    "Soul",
+    "Indie",
+    "Classical",
+    "Metal",
+    "Latin",
+    "Reggae",
+    "Blues",
+    "Funk",
+    "Punk",
+    "Country",
+    "Folk & acoustic",
+    "Desi",
+    "Arab",
+    "Afro",
+    "K-Pop"
+  ];
+
   return (
     <form onSubmit={handleSubmit}>
       <Grid container spacing={1} justify="center">
@@ -148,7 +172,7 @@ function RegistrationForm({
           <Autocomplete
             multiple
             id="tags-outlined"
-            options={process.env.MUSIC_GENRES}
+            options={genres}
             getOptionLabel={option => option}
             filterSelectedOptions
             onChange={(event, value) => {
