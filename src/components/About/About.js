@@ -3,9 +3,9 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { useStyle } from "./aboutStyle";
-import reactLogo from "../../../public/images/react.png";
-import reduxLogo from "../../../public/images/redux.png";
-import materialLogo from "../../../public/images/material_ui.png";
+import reactLogo from "../../images/react.png";
+import reduxLogo from "../../images/redux.png";
+import materialLogo from "../../images/material_ui.png";
 
 function About() {
   const classes = useStyle();

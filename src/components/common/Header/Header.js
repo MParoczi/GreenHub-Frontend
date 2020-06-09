@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { useStyle } from "./headerStyle";
-import logo from "../../../../public/images/logo.png";
+import logo from "../../../images/logo.png";
 import TemporaryDrawer from "../TemporaryDrawer/TemporaryDrawer";
 
 function Header() {
