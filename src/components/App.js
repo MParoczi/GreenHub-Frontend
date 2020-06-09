@@ -22,28 +22,32 @@ function App() {
   const user = useSelector(state => state.loggedInUser);
   const dispatch = useDispatch();
 
+  const logout = useCallback(() => {
+    dispatch(logoutUser(user));
+  }, [dispatch, user]);
+
   const syncLogout = useCallback(
     event => {
       if (event.key === "logout") {
-        dispatch(logoutUser(user));
+        logout();
       }
     },
-    [dispatch, user]
+    [logout]
   );
 
   useEffect(() => {
     window.addEventListener("storage", syncLogout);
-  }, [window, syncLogout]);
+  }, [syncLogout]);
 
   useEffect(() => {
-    dispatch(getCurrentUser(user, history))
+    dispatch(getCurrentUser(user))
       .then(response => {
         toast.success(response.loggedInUser.message);
         history.push("/");
       })
       .catch(() => {
         if (Object.keys(user).length !== 0) {
-          dispatch(logoutUser(user));
+          logout();
         }
         history.push("/login");
       });
