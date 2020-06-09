@@ -1,8 +1,9 @@
 import formatToBasicDate from "../../../utils/dateFormatter";
+import XRegExp from "xregexp";
 
 function validateName(name) {
-  const regex = RegExp(
-    "^[A-Za-z\u{00C0}-\u{00FF}][A-Za-z\u{00C0}-\u{00FF}'-]+([ A-Za-z\u{00C0}-\u{00FF}][A-Za-z\u{00C0}-\u{00FF}'-]+)*$"
+  const regex = XRegExp(
+    "^[\\p{Letter}][\\p{Letter}'-]+([ \\p{Letter}][\\p{Letter}'-]+)*$"
   );
 
   if (!name) return "Name is required";

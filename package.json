@@ -22,7 +22,8 @@
     "react-toastify": "^6.0.5",
     "redux": "^4.0.5",
     "redux-immutable-state-invariant": "^2.1.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "xregexp": "^4.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
