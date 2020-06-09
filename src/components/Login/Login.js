@@ -46,7 +46,7 @@ function Login() {
 
   return (
     <Grid container spacing={0} justify="center">
-      <Grid item xs={7} className={classes.row}>
+      <Grid item xs={11} md={10} lg={9} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>Login</Typography>
           {loading ? (
