@@ -35,6 +35,14 @@ function App() {
     [logout]
   );
 
+  const redirectToHome = useCallback(() => {
+    history.push("/");
+  }, [history]);
+
+  const redirectToLogin = useCallback(() => {
+    history.push("/login");
+  }, [history]);
+
   useEffect(() => {
     window.addEventListener("storage", syncLogout);
   }, [syncLogout]);
@@ -43,13 +51,13 @@ function App() {
     dispatch(getCurrentUser(user))
       .then(response => {
         toast.success(response.loggedInUser.message);
-        history.push("/");
+        redirectToHome();
       })
       .catch(() => {
         if (Object.keys(user).length !== 0) {
           logout();
         }
-        history.push("/login");
+        redirectToLogin();
       });
   }, []);
 
