@@ -1,3 +1,5 @@
+import formatToBasicDate from "../../../utils/dateFormatter";
+
 function validateName(name) {
   const regex = RegExp(
     "^[A-Za-z\u{00C0}-\u{00FF}][A-Za-z\u{00C0}-\u{00FF}'-]+([ A-Za-z\u{00C0}-\u{00FF}][A-Za-z\u{00C0}-\u{00FF}'-]+)*$"
@@ -33,8 +35,15 @@ function confirmPassword(password, confirmedPassword) {
 }
 
 function validateBirthDate(birthDate) {
+  const regex = /^\d{4}\.\d{2}\.\d{2}$/;
+
   if (!birthDate) return "Birth date is required";
-  else if (
+
+  let formattedDate = formatToBasicDate(birthDate);
+
+  if (!regex.test(formattedDate)) return "";
+
+  if (
     new Date(new Date().setFullYear(new Date().getFullYear() - 14)) < birthDate
   )
     return "You have to be 14 years old at least";
