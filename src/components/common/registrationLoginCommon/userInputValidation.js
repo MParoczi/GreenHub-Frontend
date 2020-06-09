@@ -24,7 +24,18 @@ function validatePassword(password) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   if (!password) return "Password is required";
-  else if (!regex.test(password)) return "Password is in invalid format";
+  else if (password.length < 8)
+    return "Password length has to be at least 8 character long";
+  else if (!/\d/.test(password))
+    return "Password has to contain at least one digit";
+  else if (!/[a-z]/.test(password))
+    return "Password has to contain at least one lowercase character";
+  else if (!/[A-Z]/.test(password))
+    return "Password has to contain at least one uppercase character";
+  else if (!/[+@$!%*?&]/.test(password))
+    return "Password has to contain one of the following characters: @ $ ! % * ? &";
+  else if (!regex.test(password))
+    return "Password is in invalid format (should not contain accents)";
   else return true;
 }
 
