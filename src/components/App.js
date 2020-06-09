@@ -45,7 +45,6 @@ function App() {
 
   const getUser = useCallback(() => {
     if (Object.keys(user).length === 0) {
-      console.log("get user");
       dispatch(getCurrentUser(user))
         .then(response => {
           toast.success(response.loggedInUser.message);
@@ -70,7 +69,6 @@ function App() {
 
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
-      console.log("refresh token");
       let expiration =
         new Date(user.token.expiration).setMinutes(
           new Date(user.token.expiration).getMinutes() - 1
