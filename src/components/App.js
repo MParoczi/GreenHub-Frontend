@@ -15,15 +15,11 @@ import {
   getCurrentUser,
   refreshToken
 } from "../redux/actions/userActions";
-import { ThemeProvider } from "@material-ui/styles";
-import { defaultMaterialTheme } from "./common/registrationLoginCommon/registrationLoginStyle";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 function App() {
   const classes = useStyle();
   const history = useHistory();
   const user = useSelector(state => state.loggedInUser);
-  const loading = useSelector(state => state.apiCallsInProgress);
   const dispatch = useDispatch();
 
   const syncLogout = useCallback(
@@ -66,18 +62,12 @@ function App() {
   return (
     <div className={classes.root}>
       <Header />
-      {loading ? (
-        <ThemeProvider theme={defaultMaterialTheme}>
-          <CircularProgress color="secondary" />
-        </ThemeProvider>
-      ) : (
-        <Switch>
-          <Route path="/registration" component={Registration} />
-          <Route path="/login" component={Login} />
-          <Route path="/about" component={About} />
-          <Route component={PageNotFound} />
-        </Switch>
-      )}
+      <Switch>
+        <Route path="/registration" component={Registration} />
+        <Route path="/login" component={Login} />
+        <Route path="/about" component={About} />
+        <Route component={PageNotFound} />
+      </Switch>
       <Footer />
       <ToastContainer autoClose={6000} hideProgressBar />
     </div>
