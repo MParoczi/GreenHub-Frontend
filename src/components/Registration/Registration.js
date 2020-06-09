@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
@@ -55,11 +55,15 @@ function Registration() {
     }));
   };
 
+  const getCountries = useCallback(() => {
+    dispatch(loadCountries());
+  }, [dispatch]);
+
   useEffect(() => {
     if (countries.length === 0) {
-      dispatch(loadCountries());
+      getCountries();
     }
-  }, []);
+  }, [countries.length, getCountries]);
 
   return (
     <Grid container spacing={0} justify="center">
