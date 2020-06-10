@@ -59,7 +59,6 @@ export function logoutUser(user) {
       .logoutUser(user)
       .then(loggedOutUser => {
         dispatch(loggedOutSuccess(loggedOutUser));
-        window.localStorage.setItem("logout", Date.now().toString());
       })
       .catch(error => {
         dispatch(apiCallError());

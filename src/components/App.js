@@ -27,15 +27,6 @@ function App() {
     dispatch(logoutUser(user));
   }, [dispatch, user]);
 
-  const syncLogout = useCallback(
-    event => {
-      if (event.key === "logout") {
-        logout();
-      }
-    },
-    [logout]
-  );
-
   const getUser = useCallback(() => {
     if (Object.keys(user).length === 0) {
       dispatch(getCurrentUser(user))
@@ -49,10 +40,6 @@ function App() {
         });
     }
   }, [dispatch, logout, user]);
-
-  useEffect(() => {
-    window.addEventListener("storage", syncLogout);
-  }, [syncLogout]);
 
   useEffect(() => {
     getUser();
