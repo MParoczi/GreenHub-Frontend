@@ -12,6 +12,7 @@ function Home() {
       <Grid item xs={11} md={10} lg={9} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>Home Page</Typography>
+          Under development
         </Paper>
       </Grid>
     </Grid>
