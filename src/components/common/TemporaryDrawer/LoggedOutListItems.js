@@ -50,11 +50,7 @@ function LoggedOutListItems({ classes, toggleDrawer }) {
             <ListItemIcon className={classes.icon}>
               <InfoTwoTone />
             </ListItemIcon>
-            <ListItemText
-              primary="About"
-              className={classes.text}
-              classes={{}}
-            />
+            <ListItemText primary="About" className={classes.text} />
           </ListItem>
         </Link>
       </List>
