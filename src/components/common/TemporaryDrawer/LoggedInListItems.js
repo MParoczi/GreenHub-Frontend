@@ -7,11 +7,18 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import HomeTwoTone from "@material-ui/icons/HomeTwoTone";
-import VpnKeyTwoTone from "@material-ui/icons/VpnKeyTwoTone";
-import LockOpenTwoTone from "@material-ui/icons/LockOpenTwoTone";
+import MeetingRoomTwoToneIcon from "@material-ui/icons/MeetingRoomTwoTone";
 import InfoTwoTone from "@material-ui/icons/InfoTwoTone";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../../redux/actions/userActions";
 
-function ListItems({ classes, toggleDrawer }) {
+function LoggedOutListItems({ classes, toggleDrawer, user }) {
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(logoutUser(user));
+  };
+
   return (
     <div
       role="presentation"
@@ -28,33 +35,19 @@ function ListItems({ classes, toggleDrawer }) {
           </ListItem>
         </Link>
         <Divider />
-        <Link to="/login">
-          <ListItem className={classes.listItem}>
-            <ListItemIcon className={classes.icon}>
-              <VpnKeyTwoTone />
-            </ListItemIcon>
-            <ListItemText primary="Login" className={classes.text} />
-          </ListItem>
-        </Link>
-        <Link to="/registration">
-          <ListItem className={classes.listItem}>
-            <ListItemIcon className={classes.icon}>
-              <LockOpenTwoTone />
-            </ListItemIcon>
-            <ListItemText primary="Registration" className={classes.text} />
-          </ListItem>
-        </Link>
+        <ListItem className={classes.listItem} onClick={logout}>
+          <ListItemIcon className={classes.icon}>
+            <MeetingRoomTwoToneIcon />
+          </ListItemIcon>
+          <ListItemText primary="Logout" className={classes.text} />
+        </ListItem>
         <Divider />
         <Link to="/about">
           <ListItem className={classes.listItem}>
             <ListItemIcon className={classes.icon}>
               <InfoTwoTone />
             </ListItemIcon>
-            <ListItemText
-              primary="About"
-              className={classes.text}
-              classes={{}}
-            />
+            <ListItemText primary="About" className={classes.text} />
           </ListItem>
         </Link>
       </List>
@@ -62,9 +55,10 @@ function ListItems({ classes, toggleDrawer }) {
   );
 }
 
-ListItems.propTypes = {
+LoggedOutListItems.propTypes = {
   classes: PropTypes.object.isRequired,
-  toggleDrawer: PropTypes.func.isRequired
+  toggleDrawer: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
-export default ListItems;
+export default LoggedOutListItems;

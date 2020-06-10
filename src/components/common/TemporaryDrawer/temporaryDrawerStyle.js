@@ -20,7 +20,8 @@ export const useStyle = makeStyles(theme => ({
   icon: { color: "#FFDB83" },
   listItem: {
     "&:hover": {
-      background: "#676D72"
+      background: "#676D72",
+      cursor: "pointer"
     }
   }
 }));
