@@ -48,16 +48,14 @@ function App() {
       dispatch(getCurrentUser(user))
         .then(response => {
           toast.success(response.loggedInUser.message);
-          redirectToHome();
         })
         .catch(() => {
           if (Object.keys(user).length !== 0) {
             logout();
           }
-          redirectToLogin();
         });
     }
-  }, [dispatch, logout, redirectToHome, redirectToLogin, user]);
+  }, [dispatch, logout, user]);
 
   useEffect(() => {
     window.addEventListener("storage", syncLogout);
