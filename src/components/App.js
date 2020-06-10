@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./common/Header/Header";
 import PageNotFound from "./common/PageNotFound/PageNotFound";
@@ -20,7 +20,6 @@ import Home from "./Home/Home";
 
 function App() {
   const classes = useStyle();
-  const history = useHistory();
   const user = useSelector(state => state.loggedInUser);
   const dispatch = useDispatch();
 
