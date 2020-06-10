@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./common/Header/Header";
 import PageNotFound from "./common/PageNotFound/PageNotFound";
@@ -15,10 +15,11 @@ import {
   getCurrentUser,
   refreshToken
 } from "../redux/actions/userActions";
+import PrivateRoute from "./common/PrivateRoute/PrivateRoute";
+import Home from "./Home/Home";
 
 function App() {
   const classes = useStyle();
-  const history = useHistory();
   const user = useSelector(state => state.loggedInUser);
   const dispatch = useDispatch();
 
@@ -35,29 +36,19 @@ function App() {
     [logout]
   );
 
-  const redirectToHome = useCallback(() => {
-    history.push("/");
-  }, [history]);
-
-  const redirectToLogin = useCallback(() => {
-    history.push("/login");
-  }, [history]);
-
   const getUser = useCallback(() => {
     if (Object.keys(user).length === 0) {
       dispatch(getCurrentUser(user))
         .then(response => {
           toast.success(response.loggedInUser.message);
-          redirectToHome();
         })
         .catch(() => {
           if (Object.keys(user).length !== 0) {
             logout();
           }
-          redirectToLogin();
         });
     }
-  }, [dispatch, logout, redirectToHome, redirectToLogin, user]);
+  }, [dispatch, logout, user]);
 
   useEffect(() => {
     window.addEventListener("storage", syncLogout);
@@ -81,8 +72,27 @@ function App() {
     <div className={classes.root}>
       <Header />
       <Switch>
-        <Route path="/registration" component={Registration} />
-        <Route path="/login" component={Login} />
+        <PrivateRoute
+          exact
+          path="/"
+          redirect="/login"
+          user={user.token !== undefined}
+          component={Home}
+        />
+        <PrivateRoute
+          exact
+          path="/registration"
+          redirect={"/"}
+          user={user.token === undefined}
+          component={Registration}
+        />
+        <PrivateRoute
+          exact
+          path="/login"
+          redirect={"/"}
+          user={user.token === undefined}
+          component={Login}
+        />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />
       </Switch>

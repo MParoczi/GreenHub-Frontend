@@ -1,13 +1,16 @@
 import React from "react";
-import ListItems from "./ListItems";
+import LoggedOutListItems from "./LoggedOutListItems";
+import LoggedInListItems from "./LoggedInListItems";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import { useStyle } from "./temporaryDrawerStyle";
 import MenuTwoToneIcon from "@material-ui/icons/MenuTwoTone";
+import { useSelector } from "react-redux";
 
 export default function TemporaryDrawer() {
   const classes = useStyle();
   const [state, setState] = React.useState(false);
+  const user = useSelector(state => state.loggedInUser);
 
   const toggleDrawer = open => event => {
     if (
@@ -30,7 +33,15 @@ export default function TemporaryDrawer() {
         onClose={toggleDrawer(false)}
         classes={{ paper: classes.drawer }}
       >
-        <ListItems classes={classes} toggleDrawer={toggleDrawer} />
+        {Object.keys(user).length === 0 ? (
+          <LoggedOutListItems classes={classes} toggleDrawer={toggleDrawer} />
+        ) : (
+          <LoggedInListItems
+            classes={classes}
+            toggleDrawer={toggleDrawer}
+            user={user}
+          />
+        )}
       </Drawer>
     </div>
   );
