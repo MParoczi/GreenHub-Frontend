@@ -35,14 +35,6 @@ function App() {
     [logout]
   );
 
-  const redirectToHome = useCallback(() => {
-    history.push("/");
-  }, [history]);
-
-  const redirectToLogin = useCallback(() => {
-    history.push("/login");
-  }, [history]);
-
   const getUser = useCallback(() => {
     if (Object.keys(user).length === 0) {
       dispatch(getCurrentUser(user))
