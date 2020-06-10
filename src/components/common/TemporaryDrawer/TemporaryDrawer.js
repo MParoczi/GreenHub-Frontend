@@ -1,5 +1,5 @@
 import React from "react";
-import ListItems from "./ListItems";
+import LoggedOutListItems from "./LoggedOutListItems";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import { useStyle } from "./temporaryDrawerStyle";
@@ -30,7 +30,7 @@ export default function TemporaryDrawer() {
         onClose={toggleDrawer(false)}
         classes={{ paper: classes.drawer }}
       >
-        <ListItems classes={classes} toggleDrawer={toggleDrawer} />
+        <LoggedOutListItems classes={classes} toggleDrawer={toggleDrawer} />
       </Drawer>
     </div>
   );

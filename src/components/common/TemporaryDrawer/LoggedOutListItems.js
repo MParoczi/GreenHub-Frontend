@@ -11,7 +11,7 @@ import VpnKeyTwoTone from "@material-ui/icons/VpnKeyTwoTone";
 import LockOpenTwoTone from "@material-ui/icons/LockOpenTwoTone";
 import InfoTwoTone from "@material-ui/icons/InfoTwoTone";
 
-function ListItems({ classes, toggleDrawer }) {
+function LoggedOutListItems({ classes, toggleDrawer }) {
   return (
     <div
       role="presentation"
@@ -62,9 +62,9 @@ function ListItems({ classes, toggleDrawer }) {
   );
 }
 
-ListItems.propTypes = {
+LoggedOutListItems.propTypes = {
   classes: PropTypes.object.isRequired,
   toggleDrawer: PropTypes.func.isRequired
 };
 
-export default ListItems;
+export default LoggedOutListItems;
