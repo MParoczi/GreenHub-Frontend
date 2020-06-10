@@ -15,6 +15,8 @@ import {
   getCurrentUser,
   refreshToken
 } from "../redux/actions/userActions";
+import PrivateRoute from "./common/PrivateRoute/PrivateRoute";
+import Home from "./Home/Home";
 
 function App() {
   const classes = useStyle();
@@ -71,8 +73,27 @@ function App() {
     <div className={classes.root}>
       <Header />
       <Switch>
-        <Route path="/registration" component={Registration} />
-        <Route path="/login" component={Login} />
+        <PrivateRoute
+          exact
+          path="/"
+          redirect="/login"
+          user={user.token !== undefined}
+          component={Home}
+        />
+        <PrivateRoute
+          exact
+          path="/registration"
+          redirect={"/"}
+          user={user.token === undefined}
+          component={Registration}
+        />
+        <PrivateRoute
+          exact
+          path="/login"
+          redirect={"/"}
+          user={user.token === undefined}
+          component={Login}
+        />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />
       </Switch>
