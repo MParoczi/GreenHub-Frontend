@@ -69,14 +69,14 @@ function App() {
         <PrivateRoute
           exact
           path="/registration"
-          redirect={"/"}
+          redirect="/"
           user={user.token === undefined}
           component={Registration}
         />
         <PrivateRoute
           exact
           path="/login"
-          redirect={"/"}
+          redirect="/"
           user={user.token === undefined}
           component={Login}
         />
