@@ -60,6 +60,22 @@ export const useStyle = makeStyles(theme => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: "10px"
     }
+  },
+  profilePicture: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.up("xs")]: {
+      width: theme.spacing(10),
+      height: theme.spacing(10)
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(20),
+      height: theme.spacing(20)
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: theme.spacing(30),
+      height: theme.spacing(30)
+    }
   }
 }));
 
