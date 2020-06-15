@@ -19,7 +19,7 @@ function Profile() {
           <Typography className={classes.title}>My profile</Typography>
           <Avatar
             alt="profile-pic"
-            src={user.picture ? user.picture : defaultProfilePic}
+            src={user.picture ? user.profilePicture : defaultProfilePic}
             className={classes.profilePicture}
           />
           <ImageUpload />
