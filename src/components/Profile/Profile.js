@@ -7,7 +7,6 @@ import { useStyle } from "../common/style/mainStyle";
 import { useSelector } from "react-redux";
 import defaultProfilePic from "../../images/default_profile.png";
 import ImageUpload from "./ImageUpload/ImageUpload";
-import { CloudinaryContext } from "cloudinary-react";
 
 function Profile() {
   const classes = useStyle();
