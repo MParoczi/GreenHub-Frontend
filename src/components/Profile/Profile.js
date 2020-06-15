@@ -7,6 +7,7 @@ import { useStyle } from "../common/style/mainStyle";
 import { useSelector } from "react-redux";
 import defaultProfilePic from "../../images/default_profile.png";
 import ImageUpload from "./ImageUpload/ImageUpload";
+import { CloudinaryContext } from "cloudinary-react";
 
 function Profile() {
   const classes = useStyle();
@@ -22,7 +23,9 @@ function Profile() {
             src={user.picture ? user.picture : defaultProfilePic}
             className={classes.profilePicture}
           />
-          <ImageUpload />
+          <CloudinaryContext>
+            <ImageUpload />
+          </CloudinaryContext>
         </Paper>
       </Grid>
       <Grid item xs={11} md={6} className={classes.row}>
