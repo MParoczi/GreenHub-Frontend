@@ -23,9 +23,7 @@ function Profile() {
             src={user.picture ? user.picture : defaultProfilePic}
             className={classes.profilePicture}
           />
-          <CloudinaryContext>
-            <ImageUpload />
-          </CloudinaryContext>
+          <ImageUpload />
         </Paper>
       </Grid>
       <Grid item xs={11} md={6} className={classes.row}>
