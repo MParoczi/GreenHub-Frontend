@@ -107,3 +107,16 @@ export function registerUser(user) {
       });
   };
 }
+
+export function changeProfilePicture(user) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return userApi
+      .changeProfilePicture(user)
+      .then(loggedInUser => dispatch(changeProfilePictureSuccess(loggedInUser)))
+      .catch(error => {
+        dispatch(apiCallError());
+        throw error;
+      });
+  };
+}
