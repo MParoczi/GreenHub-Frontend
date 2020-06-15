@@ -59,3 +59,17 @@ export function registerUser(user) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function changeProfilePicture(user) {
+  return fetch(`${accountApiUrl}changeProfilePicture`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${user.token.token}`
+    },
+    body: JSON.stringify(user),
+    credentials: "include"
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
