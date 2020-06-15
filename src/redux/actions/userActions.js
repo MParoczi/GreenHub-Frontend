@@ -26,6 +26,10 @@ function registerUserSuccess(registeredUser) {
   return { type: types.REGISTER_USER_SUCCESS, registeredUser };
 }
 
+function changeProfilePictureSuccess(loggedInUser) {
+  return { type: types.CHANGE_PROFILE_PICTURE_SUCCESS, loggedInUser };
+}
+
 export function getCurrentUser() {
   return function(dispatch) {
     dispatch(beginApiCall());
