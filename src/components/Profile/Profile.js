@@ -3,12 +3,10 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
 import { useStyle } from "../common/style/mainStyle";
 import { useSelector } from "react-redux";
 import defaultProfilePic from "../../images/default_profile.png";
-import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
+import ImageUpload from "./ImageUpload/ImageUpload";
 
 function Profile() {
   const classes = useStyle();
@@ -24,11 +22,7 @@ function Profile() {
             src={user.picture ? user.picture : defaultProfilePic}
             className={classes.profilePicture}
           />
-          <Tooltip title="Edit profile picture">
-            <IconButton>
-              <EditTwoToneIcon />
-            </IconButton>
-          </Tooltip>
+          <ImageUpload />
         </Paper>
       </Grid>
       <Grid item xs={11} md={6} className={classes.row}>
