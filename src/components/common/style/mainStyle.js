@@ -80,6 +80,19 @@ export const useStyle = makeStyles(theme => ({
     "&:hover": {
       opacity: "90%"
     }
+  },
+  details: {
+    color: "#383e42",
+    marginBottom: "10px",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "15px"
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "20px"
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "25px"
+    }
   }
 }));
 
