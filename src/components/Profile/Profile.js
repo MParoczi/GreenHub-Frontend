@@ -32,9 +32,7 @@ function Profile() {
             alt="profile-pic"
             src={user.profilePicture ? user.profilePicture : defaultProfilePic}
             className={classes.profilePicture}
-            onClick={() => {
-              setVisible(true);
-            }}
+            onClick={openPicture}
           />
           <ImageUpload />
           <UserDetails classes={classes} user={user} />
