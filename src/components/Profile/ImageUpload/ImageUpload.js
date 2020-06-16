@@ -5,6 +5,7 @@ import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 import { openUploadWidget } from "./CloudinaryService";
 import { useDispatch, useSelector } from "react-redux";
 import { changeProfilePicture } from "../../../redux/actions/userActions";
+import { toast } from "react-toastify";
 
 function ImageUpload() {
   const dispatch = useDispatch();
@@ -40,15 +41,19 @@ function ImageUpload() {
   };
 
   const handleUpload = (error, photo) => {
-    if (!error) {
-      if (photo.event === "success") {
-        dispatch(
-          changeProfilePicture({
-            ...user,
-            profilePicture: photo.info.secure_url
-          })
-        );
-      }
+    if (!error && photo.event === "success") {
+      dispatch(
+        changeProfilePicture({
+          ...user,
+          profilePicture: photo.info.secure_url
+        })
+      )
+        .then(response => {
+          toast.success(response.loggedInUser.message);
+        })
+        .catch(response => {
+          toast.error(response.message);
+        });
     } else {
       console.log(error);
     }
