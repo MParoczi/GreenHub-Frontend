@@ -37,22 +37,11 @@ function Profile() {
             }}
           />
           <ImageUpload />
-          <Viewer
+          <UserDetails classes={classes} user={user} />
+          <ProfilePictureViewer
+            user={user}
+            closePicture={closePicture}
             visible={visible}
-            onClose={() => {
-              setVisible(false);
-            }}
-            images={[
-              {
-                src: user.profilePicture
-                  ? user.profilePicture
-                  : defaultProfilePic,
-                alt: `Profile picture of ${user.firstName}`
-              }
-            ]}
-            drag={false}
-            noFooter={true}
-            disableMouseZoom={true}
           />
         </Paper>
       </Grid>
