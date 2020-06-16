@@ -1,6 +1,6 @@
 import { handleResponse, handleError } from "./apiUtils";
 
-const accountApiUrl = "https://localhost:5001/api/account/";
+const accountApiUrl = "https://legato-social.herokuapp.com/api/account/";
 
 export function getCurrentUser() {
   return fetch(`${accountApiUrl}getCurrentUser`, {
