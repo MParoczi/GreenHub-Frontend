@@ -15,7 +15,11 @@ function UserDetails({ user, classes }) {
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell align="left" className={classes.details}>
+            <TableCell
+              align="left"
+              className={classes.details}
+              style={{ fontWeight: "bold" }}
+            >
               Name:
             </TableCell>
             <TableCell align="right" className={classes.details}>
@@ -23,7 +27,11 @@ function UserDetails({ user, classes }) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="left" className={classes.details}>
+            <TableCell
+              align="left"
+              className={classes.details}
+              style={{ fontWeight: "bold" }}
+            >
               Date of birth:
             </TableCell>
             <TableCell align="right" className={classes.details}>
@@ -35,7 +43,11 @@ function UserDetails({ user, classes }) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="left" className={classes.details}>
+            <TableCell
+              align="left"
+              className={classes.details}
+              style={{ fontWeight: "bold" }}
+            >
               Country:
             </TableCell>
             <TableCell align="right" className={classes.details}>
@@ -43,7 +55,11 @@ function UserDetails({ user, classes }) {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="left" className={classes.details}>
+            <TableCell
+              align="left"
+              className={classes.details}
+              style={{ fontWeight: "bold" }}
+            >
               Genres:
             </TableCell>
             <TableCell align="right" className={classes.details}>
