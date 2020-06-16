@@ -17,6 +17,7 @@ import {
 } from "../redux/actions/userActions";
 import PrivateRoute from "./common/PrivateRoute/PrivateRoute";
 import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
 
 function App() {
   const classes = useStyle();
@@ -69,16 +70,23 @@ function App() {
         <PrivateRoute
           exact
           path="/registration"
-          redirect={"/"}
+          redirect="/"
           user={user.token === undefined}
           component={Registration}
         />
         <PrivateRoute
           exact
           path="/login"
-          redirect={"/"}
+          redirect="/"
           user={user.token === undefined}
           component={Login}
+        />
+        <PrivateRoute
+          exact
+          path="/profile"
+          redirect="/login"
+          user={user.token !== undefined}
+          component={Profile}
         />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />

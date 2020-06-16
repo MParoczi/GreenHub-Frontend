@@ -60,6 +60,39 @@ export const useStyle = makeStyles(theme => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: "10px"
     }
+  },
+  profilePicture: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    cursor: "pointer",
+    [theme.breakpoints.up("xs")]: {
+      width: theme.spacing(10),
+      height: theme.spacing(10)
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(20),
+      height: theme.spacing(20)
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: theme.spacing(30),
+      height: theme.spacing(30)
+    },
+    "&:hover": {
+      opacity: "90%"
+    }
+  },
+  details: {
+    color: "#383e42",
+    marginBottom: "10px",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "15px"
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "20px"
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "25px"
+    }
   }
 }));
 
