@@ -3,8 +3,13 @@ import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import EditTwoToneIcon from "@material-ui/icons/EditTwoTone";
 import { openUploadWidget } from "./CloudinaryService";
+import { useDispatch, useSelector } from "react-redux";
+import { changeProfilePicture } from "../../../redux/actions/userActions";
 
 function ImageUpload() {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.loggedInUser);
+
   const options = {
     cloudName: "dqqo1y0xo",
     uploadPreset: "h7rcdcwe",
@@ -37,7 +42,12 @@ function ImageUpload() {
   const handleUpload = (error, photo) => {
     if (!error) {
       if (photo.event === "success") {
-        console.log(photo);
+        dispatch(
+          changeProfilePicture({
+            ...user,
+            profilePicture: photo.info.secure_url
+          })
+        );
       }
     } else {
       console.log(error);
