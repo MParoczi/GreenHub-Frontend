@@ -64,6 +64,7 @@ export const useStyle = makeStyles(theme => ({
   profilePicture: {
     marginLeft: "auto",
     marginRight: "auto",
+    cursor: "pointer",
     [theme.breakpoints.up("xs")]: {
       width: theme.spacing(10),
       height: theme.spacing(10)
@@ -75,6 +76,9 @@ export const useStyle = makeStyles(theme => ({
     [theme.breakpoints.up("lg")]: {
       width: theme.spacing(30),
       height: theme.spacing(30)
+    },
+    "&:hover": {
+      opacity: "90%"
     }
   }
 }));
