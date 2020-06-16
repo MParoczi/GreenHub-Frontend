@@ -11,6 +11,8 @@ export default function userReducer(state = initialState.loggedInUser, action) {
       return action.loggedInUser.payload;
     case types.REFRESH_TOKEN_SUCCESS:
       return { ...state, token: action.token.payload };
+    case types.CHANGE_PROFILE_PICTURE_SUCCESS:
+      return action.loggedInUser.payload;
     default:
       return state;
   }
