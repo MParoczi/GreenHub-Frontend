@@ -15,7 +15,7 @@ function Profile() {
   const [visible, setVisible] = useState(false);
 
   return (
-    <Grid container spacing={2} justify="space-evenly">
+    <Grid container spacing={0} justify="space-evenly">
       <Grid item xs={11} md={4} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>My profile</Typography>
