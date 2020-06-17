@@ -82,16 +82,16 @@ export const useStyle = makeStyles(theme => ({
       opacity: "90%"
     },
     [theme.breakpoints.up("xs")]: {
-      width: theme.spacing(10),
-      height: theme.spacing(10)
+      width: "150px",
+      height: "150px"
     },
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(20),
-      height: theme.spacing(20)
+      width: "200px",
+      height: "200px"
     },
     [theme.breakpoints.up("lg")]: {
-      width: theme.spacing(30),
-      height: theme.spacing(30)
+      width: "250px",
+      height: "250px"
     }
   }
 }));

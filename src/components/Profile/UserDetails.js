@@ -17,24 +17,24 @@ function UserDetails({ user, classes }) {
           <TableRow>
             <TableCell
               align="left"
-              className={classes.details}
+              classes={{ root: classes.details }}
               style={{ fontWeight: "bold" }}
             >
               Name:
             </TableCell>
-            <TableCell align="right" className={classes.details}>
+            <TableCell align="right" classes={{ root: classes.details }}>
               {user.firstName} {user.lastName}
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell
               align="left"
-              className={classes.details}
+              classes={{ root: classes.details }}
               style={{ fontWeight: "bold" }}
             >
               Date of birth:
             </TableCell>
-            <TableCell align="right" className={classes.details}>
+            <TableCell align="right" classes={{ root: classes.details }}>
               {new Intl.DateTimeFormat("en-GB", {
                 year: "numeric",
                 month: "long",
@@ -45,24 +45,24 @@ function UserDetails({ user, classes }) {
           <TableRow>
             <TableCell
               align="left"
-              className={classes.details}
+              classes={{ root: classes.details }}
               style={{ fontWeight: "bold" }}
             >
               Country:
             </TableCell>
-            <TableCell align="right" className={classes.details}>
+            <TableCell align="right" classes={{ root: classes.details }}>
               {user.country}
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell
               align="left"
-              className={classes.details}
               style={{ fontWeight: "bold" }}
+              classes={{ root: classes.details }}
             >
               Genres:
             </TableCell>
-            <TableCell align="right" className={classes.details}>
+            <TableCell align="right" classes={{ root: classes.details }}>
               {user.genres.join(", ")}
             </TableCell>
           </TableRow>
