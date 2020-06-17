@@ -10,7 +10,7 @@ import { Link, useHistory } from "react-router-dom";
 import { loginFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
 import { loginUser } from "../../redux/actions/userActions";
 import { toast } from "react-toastify";
-import { defaultMaterialTheme, useStyle } from "../common/style/mainStyle";
+import { defaultMaterialTheme, useStyle } from "./loginStyle";
 
 function Login() {
   const [user, setUser] = useState({});

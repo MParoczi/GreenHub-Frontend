@@ -6,10 +6,8 @@ import TableBody from "@material-ui/core/TableBody";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import PropTypes from "prop-types";
-import { useStyle } from "../common/style/mainStyle";
 
-function UserDetails({ user }) {
-  const classes = useStyle();
+function UserDetails({ user, classes }) {
   const parsedBirthDate = new Date(user.birthDate);
 
   return (
@@ -75,7 +73,8 @@ function UserDetails({ user }) {
 }
 
 UserDetails.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default UserDetails;

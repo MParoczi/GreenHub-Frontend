@@ -12,7 +12,7 @@ import { registrationFormIsValid } from "../common/registrationLoginCommon/userI
 import formatToBasicDate from "../../utils/dateFormatter";
 import { toast } from "react-toastify";
 import { ThemeProvider } from "@material-ui/styles";
-import { defaultMaterialTheme, useStyle } from "../common/style/mainStyle";
+import { defaultMaterialTheme, useStyle } from "./registrationStyle";
 
 function Registration() {
   const classes = useStyle();

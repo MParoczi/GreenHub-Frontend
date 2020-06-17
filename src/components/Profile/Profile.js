@@ -8,7 +8,7 @@ import defaultProfilePic from "../../images/default_profile.png";
 import ImageUpload from "./ImageUpload/ImageUpload";
 import UserDetails from "./UserDetails";
 import ProfilePictureViewer from "./ProfilePictureViewer";
-import { useStyle } from "../common/style/mainStyle";
+import { useStyle } from "./profileStyle";
 
 function Profile() {
   const classes = useStyle();
