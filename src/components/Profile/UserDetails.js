@@ -19,24 +19,24 @@ function UserDetails({ user }) {
           <TableRow>
             <TableCell
               align="left"
-              classes={{ root: classes.details }}
+              className={classes.details}
               style={{ fontWeight: "bold" }}
             >
               Name:
             </TableCell>
-            <TableCell align="right" classes={{ root: classes.details }}>
+            <TableCell align="right" className={classes.details}>
               {user.firstName} {user.lastName}
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell
               align="left"
-              classes={{ root: classes.details }}
+              className={classes.details}
               style={{ fontWeight: "bold" }}
             >
               Date of birth:
             </TableCell>
-            <TableCell align="right" classes={{ root: classes.details }}>
+            <TableCell align="right" className={classes.details}>
               {new Intl.DateTimeFormat("en-GB", {
                 year: "numeric",
                 month: "long",
@@ -47,12 +47,12 @@ function UserDetails({ user }) {
           <TableRow>
             <TableCell
               align="left"
-              classes={{ root: classes.details }}
+              className={classes.details}
               style={{ fontWeight: "bold" }}
             >
               Country:
             </TableCell>
-            <TableCell align="right" classes={{ root: classes.details }}>
+            <TableCell align="right" className={classes.details}>
               {user.country}
             </TableCell>
           </TableRow>
@@ -60,11 +60,11 @@ function UserDetails({ user }) {
             <TableCell
               align="left"
               style={{ fontWeight: "bold" }}
-              classes={{ root: classes.details }}
+              className={classes.details}
             >
               Genres:
             </TableCell>
-            <TableCell align="right" classes={{ root: classes.details }}>
+            <TableCell align="right" className={classes.details}>
               {user.genres.join(", ")}
             </TableCell>
           </TableRow>
