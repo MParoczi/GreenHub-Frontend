@@ -44,55 +44,6 @@ export const useStyle = makeStyles(theme => ({
     "& .MuiFormLabel-root.Mui-error": {
       color: "#FF005D"
     }
-  },
-  registrationRedirect: {
-    cursor: "pointer",
-    color: "#383e42",
-    "&:hover": {
-      color: "#676D72"
-    },
-    [theme.breakpoints.up("xs")]: {
-      fontSize: "8px"
-    },
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "9px"
-    },
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "10px"
-    }
-  },
-  details: {
-    color: "#383e42",
-    marginBottom: "10px",
-    [theme.breakpoints.up("xs")]: {
-      fontSize: "15px"
-    },
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "20px"
-    },
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "25px"
-    }
-  },
-  profilePicture: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    cursor: "pointer",
-    "&:hover": {
-      opacity: "90%"
-    },
-    [theme.breakpoints.up("xs")]: {
-      width: "150px",
-      height: "150px"
-    },
-    [theme.breakpoints.up("sm")]: {
-      width: "200px",
-      height: "200px"
-    },
-    [theme.breakpoints.up("lg")]: {
-      width: "250px",
-      height: "250px"
-    }
   }
 }));
 
