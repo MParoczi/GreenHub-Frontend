@@ -31,7 +31,7 @@ function Profile() {
           <Avatar
             alt="profile-pic"
             src={user.profilePicture ? user.profilePicture : defaultProfilePic}
-            className={classes.profilePicture}
+            classes={{ root: classes.profilePicture }}
             onClick={openPicture}
           />
           <ImageUpload />
