@@ -61,26 +61,6 @@ export const useStyle = makeStyles(theme => ({
       fontSize: "10px"
     }
   },
-  profilePicture: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    cursor: "pointer",
-    [theme.breakpoints.up("xs")]: {
-      width: theme.spacing(10),
-      height: theme.spacing(10)
-    },
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(20),
-      height: theme.spacing(20)
-    },
-    [theme.breakpoints.up("lg")]: {
-      width: theme.spacing(30),
-      height: theme.spacing(30)
-    },
-    "&:hover": {
-      opacity: "90%"
-    }
-  },
   details: {
     color: "#383e42",
     marginBottom: "10px",
@@ -92,6 +72,26 @@ export const useStyle = makeStyles(theme => ({
     },
     [theme.breakpoints.up("lg")]: {
       fontSize: "25px"
+    }
+  },
+  profilePicture: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    cursor: "pointer",
+    "&:hover": {
+      opacity: "90%"
+    },
+    [theme.breakpoints.up("xs")]: {
+      width: theme.spacing(10),
+      height: theme.spacing(10)
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(20),
+      height: theme.spacing(20)
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: theme.spacing(30),
+      height: theme.spacing(30)
     }
   }
 }));
