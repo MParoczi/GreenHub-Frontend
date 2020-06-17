@@ -1,3 +1,11 @@
 module.exports = {
-  plugins: [`gatsby-plugin-material-ui`]
+  plugins: [
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        disableAutoprefixing: true,
+        disableMinification: true
+      }
+    }
+  ]
 };
