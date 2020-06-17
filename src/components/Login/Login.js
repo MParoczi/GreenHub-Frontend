@@ -4,13 +4,13 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { ThemeProvider } from "@material-ui/styles";
-import { defaultMaterialTheme, useStyle } from "../common/style/mainStyle";
 import LoginForm from "./LoginForm";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { loginFormIsValid } from "../common/registrationLoginCommon/userInputValidation";
 import { loginUser } from "../../redux/actions/userActions";
 import { toast } from "react-toastify";
+import { defaultMaterialTheme, useStyle } from "../common/style/mainStyle";
 
 function Login() {
   const [user, setUser] = useState({});

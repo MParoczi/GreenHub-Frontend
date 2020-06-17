@@ -2,10 +2,10 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { useStyle } from "./aboutStyle";
 import reactLogo from "../../images/react.png";
 import reduxLogo from "../../images/redux.png";
 import materialLogo from "../../images/material_ui.png";
+import { useStyle } from "./aboutStyle";
 
 function About() {
   const classes = useStyle();

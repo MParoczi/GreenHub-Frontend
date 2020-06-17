@@ -3,9 +3,9 @@ import LoggedOutListItems from "./LoggedOutListItems";
 import LoggedInListItems from "./LoggedInListItems";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
-import { useStyle } from "./temporaryDrawerStyle";
 import MenuTwoToneIcon from "@material-ui/icons/MenuTwoTone";
 import { useSelector } from "react-redux";
+import { useStyle } from "./temporaryDrawerStyle";
 
 export default function TemporaryDrawer() {
   const classes = useStyle();

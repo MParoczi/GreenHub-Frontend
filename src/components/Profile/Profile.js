@@ -3,12 +3,12 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import { useStyle } from "../common/style/mainStyle";
 import { useSelector } from "react-redux";
 import defaultProfilePic from "../../images/default_profile.png";
 import ImageUpload from "./ImageUpload/ImageUpload";
 import UserDetails from "./UserDetails";
 import ProfilePictureViewer from "./ProfilePictureViewer";
+import { useStyle } from "../common/style/mainStyle";
 
 function Profile() {
   const classes = useStyle();
