@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { useStyle } from "../common/style/mainStyle";
+import { useStyle } from "./homeStyle";
 
 function Home() {
   const classes = useStyle();
