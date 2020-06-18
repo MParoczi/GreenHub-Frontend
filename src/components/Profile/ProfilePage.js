@@ -8,9 +8,9 @@ import defaultProfilePic from "../../images/default_profile.png";
 import ImageUpload from "./ImageUpload/ImageUpload";
 import UserDetails from "./UserDetails";
 import ProfilePictureViewer from "./ProfilePictureViewer";
-import { useStyle } from "./profileStyle";
+import { useStyle } from "./profilePageStyle";
 
-function Profile() {
+function ProfilePage() {
   const classes = useStyle();
   const user = useSelector(state => state.loggedInUser);
   const [visible, setVisible] = useState(false);
@@ -52,4 +52,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default ProfilePage;
