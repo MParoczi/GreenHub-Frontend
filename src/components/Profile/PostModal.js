@@ -25,7 +25,16 @@ function PostModal({ classes, open, handleClose, handleSubmit, handleChange }) {
       }}
     >
       <Fade in={open}>
-        <Grid container spacing={0} justify="center" item xs={11} md={8} lg={6}>
+        <Grid
+          container
+          spacing={0}
+          justify="center"
+          item
+          xs={11}
+          md={8}
+          lg={6}
+          className={classes.modalContainer}
+        >
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <Typography className={classes.title}>Add new post</Typography>

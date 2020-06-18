@@ -88,5 +88,15 @@ export const useStyle = makeStyles(theme => ({
     "&:hover": {
       background: "#676D72"
     }
+  },
+  modalContainer: {
+    [theme.breakpoints.up("xs")]: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop: "20%"
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: 0
+    }
   }
 }));
