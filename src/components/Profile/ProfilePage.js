@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import Profile from "./Profile";
+import Posts from "./Posts";
 import { useSelector } from "react-redux";
 import { useStyle } from "./profilePageStyle";
 
@@ -31,9 +30,7 @@ function ProfilePage() {
         />
       </Grid>
       <Grid item xs={11} md={6} className={classes.row}>
-        <Paper elevation={3} className={classes.paper}>
-          <Typography className={classes.title}>My posts</Typography>
-        </Paper>
+        <Posts classes={classes} />
       </Grid>
     </Grid>
   );
