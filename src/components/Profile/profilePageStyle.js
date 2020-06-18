@@ -54,5 +54,39 @@ export const useStyle = makeStyles(theme => ({
     [theme.breakpoints.up("lg")]: {
       fontSize: "25px"
     }
+  },
+  modal: {
+    [theme.breakpoints.up("xs")]: {
+      display: "block"
+    },
+    [theme.breakpoints.up("sm")]: {
+      display: "flex"
+    },
+    overflow: "scroll",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  textField: {
+    marginBottom: "10px",
+    width: "100%",
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#383e42"
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "#0BDA51"
+    },
+    "& .MuiFormLabel-root.Mui-error": {
+      color: "#FF005D"
+    }
+  },
+  input: {
+    display: "none"
+  },
+  button: {
+    backgroundColor: "#383e42",
+    color: "#0BDA51",
+    "&:hover": {
+      background: "#676D72"
+    }
   }
 }));
