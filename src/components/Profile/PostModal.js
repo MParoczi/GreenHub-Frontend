@@ -10,7 +10,14 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 
-function PostModal({ classes, open, handleClose, handleSubmit, handleChange }) {
+function PostModal({
+  classes,
+  open,
+  handleClose,
+  handleSubmit,
+  handleChange,
+  errors
+}) {
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -45,6 +52,8 @@ function PostModal({ classes, open, handleClose, handleSubmit, handleChange }) {
                   id="post-title-input"
                   variant="outlined"
                   onChange={handleChange}
+                  error={errors.title !== undefined}
+                  helperText={errors.title}
                   className={classes.textField}
                 />
                 <TextField
@@ -55,6 +64,8 @@ function PostModal({ classes, open, handleClose, handleSubmit, handleChange }) {
                   rows={6}
                   variant="outlined"
                   onChange={handleChange}
+                  error={errors.content !== undefined}
+                  helperText={errors.content}
                   className={classes.textField}
                 />
                 <Box>
@@ -87,7 +98,8 @@ PostModal.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 export default PostModal;

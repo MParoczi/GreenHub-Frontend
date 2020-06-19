@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -13,7 +13,8 @@ import { toast } from "react-toastify";
 function Posts({ classes }) {
   const user = useSelector(state => state.loggedInUser);
   const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleOpen = () => {
     setOpen(true);
@@ -23,7 +24,7 @@ function Posts({ classes }) {
     setOpen(false);
   };
 
-  const [post, setPost] = React.useState(null);
+  const [post, setPost] = useState({});
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -33,11 +34,28 @@ function Posts({ classes }) {
     }));
   };
 
+  const formIsValid = () => {
+    const { title, content } = post;
+    const errors = {};
+
+    if (!title) errors.title = "Title can not be empty";
+    if (!content) errors.content = "Content can not be empty";
+
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
+    if (!formIsValid()) {
+      console.log(errors);
+      return;
+    }
     dispatch(addPost({ ...post, userId: user.id }, user.token.token))
       .then(response => {
         toast.success(response.post.message);
+        setPost({});
         handleClose();
       })
       .catch(response => {
@@ -61,6 +79,7 @@ function Posts({ classes }) {
         handleSubmit={handleSubmit}
         handleClose={handleClose}
         open={open}
+        errors={errors}
       />
     </>
   );
