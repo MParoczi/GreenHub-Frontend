@@ -22,6 +22,8 @@ function Posts({ classes }) {
 
   const handleClose = () => {
     setOpen(false);
+    setErrors({});
+    setPost({});
   };
 
   const [post, setPost] = useState({});
@@ -54,7 +56,6 @@ function Posts({ classes }) {
     dispatch(addPost({ ...post, userId: user.id }, user.token.token))
       .then(response => {
         toast.success(response.post.message);
-        setPost({});
         handleClose();
       })
       .catch(response => {
