@@ -49,7 +49,6 @@ function Posts({ classes }) {
   const handleSubmit = event => {
     event.preventDefault();
     if (!formIsValid()) {
-      console.log(errors);
       return;
     }
     dispatch(addPost({ ...post, userId: user.id }, user.token.token))
