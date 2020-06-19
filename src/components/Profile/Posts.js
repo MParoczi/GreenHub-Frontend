@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -6,8 +7,12 @@ import IconButton from "@material-ui/core/IconButton";
 import AddCircleTwoToneIcon from "@material-ui/icons/AddCircleTwoTone";
 import PropTypes from "prop-types";
 import PostModal from "./PostModal";
+import { addPost } from "../../redux/actions/postActions";
+import { toast } from "react-toastify";
 
 function Posts({ classes }) {
+  const user = useSelector(state => state.loggedInUser);
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -30,6 +35,14 @@ function Posts({ classes }) {
 
   const handleSubmit = event => {
     event.preventDefault();
+    dispatch(addPost({ ...post, userId: user.id }, user.token.token))
+      .then(response => {
+        toast.success(response.post.message);
+        handleClose();
+      })
+      .catch(response => {
+        toast.error(response.message);
+      });
   };
 
   return (
