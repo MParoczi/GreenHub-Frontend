@@ -9,6 +9,10 @@ import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { ThemeProvider } from "@material-ui/styles";
+import { defaultMaterialTheme } from "./profilePageStyle";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function PostModal({
   classes,
@@ -18,6 +22,8 @@ function PostModal({
   handleChange,
   errors
 }) {
+  const loading = useSelector(state => state.apiCallsInProgress);
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -45,46 +51,52 @@ function PostModal({
           <Grid item xs={12}>
             <Paper className={classes.paper}>
               <Typography className={classes.title}>Add new post</Typography>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  name="title"
-                  label="Title"
-                  id="post-title-input"
-                  variant="outlined"
-                  onChange={handleChange}
-                  error={errors.title !== undefined}
-                  helperText={errors.title}
-                  className={classes.textField}
-                />
-                <TextField
-                  name="content"
-                  label="Content"
-                  id="post-content-input"
-                  multiline
-                  rows={6}
-                  variant="outlined"
-                  onChange={handleChange}
-                  error={errors.content !== undefined}
-                  helperText={errors.content}
-                  className={classes.textField}
-                />
-                <Box>
-                  <input
-                    id="register-user"
-                    type="submit"
-                    className={classes.input}
+              {loading ? (
+                <ThemeProvider theme={defaultMaterialTheme}>
+                  <CircularProgress color="secondary" />
+                </ThemeProvider>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    name="title"
+                    label="Title"
+                    id="post-title-input"
+                    variant="outlined"
+                    onChange={handleChange}
+                    error={errors.title !== undefined}
+                    helperText={errors.title}
+                    className={classes.textField}
                   />
-                  <label htmlFor="register-user">
-                    <Button
-                      variant="contained"
-                      className={classes.button}
-                      component="span"
-                    >
-                      Submit
-                    </Button>
-                  </label>
-                </Box>
-              </form>
+                  <TextField
+                    name="content"
+                    label="Content"
+                    id="post-content-input"
+                    multiline
+                    rows={6}
+                    variant="outlined"
+                    onChange={handleChange}
+                    error={errors.content !== undefined}
+                    helperText={errors.content}
+                    className={classes.textField}
+                  />
+                  <Box>
+                    <input
+                      id="register-user"
+                      type="submit"
+                      className={classes.input}
+                    />
+                    <label htmlFor="register-user">
+                      <Button
+                        variant="contained"
+                        className={classes.button}
+                        component="span"
+                      >
+                        Submit
+                      </Button>
+                    </label>
+                  </Box>
+                </form>
+              )}
             </Paper>
           </Grid>
         </Grid>
