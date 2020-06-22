@@ -15,12 +15,12 @@ export function addPost(post, token) {
     .catch(handleError);
 }
 
-export function getUserPosts(user, token) {
+export function getUserPosts(user) {
   return fetch(`${mainApiEndPoint}post/getUserPosts`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${user.token.token}`
     },
     body: JSON.stringify(user),
     credentials: "include"

@@ -23,11 +23,11 @@ export function addPost(post, token) {
   };
 }
 
-export function getUserPosts(user, token) {
+export function getUserPosts(user) {
   return function(dispatch) {
     dispatch(beginApiCall());
     return postApi
-      .getUserPosts(user, token)
+      .getUserPosts(user)
       .then(posts => dispatch(getUserPostsSuccess(posts)))
       .catch(error => {
         dispatch(apiCallError());
