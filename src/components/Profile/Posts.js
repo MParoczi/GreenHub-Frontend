@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -7,11 +7,12 @@ import IconButton from "@material-ui/core/IconButton";
 import AddCircleTwoToneIcon from "@material-ui/icons/AddCircleTwoTone";
 import PropTypes from "prop-types";
 import PostModal from "./PostModal";
-import { addPost } from "../../redux/actions/postActions";
+import { addPost, getUserPosts } from "../../redux/actions/postActions";
 import { toast } from "react-toastify";
 
 function Posts({ classes }) {
   const user = useSelector(state => state.loggedInUser);
+  const posts = useSelector(state => state.posts);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [errors, setErrors] = useState({});
@@ -62,6 +63,16 @@ function Posts({ classes }) {
         toast.error(response.message);
       });
   };
+
+  const getPosts = useCallback(() => {
+    if (posts.length === 0) {
+      dispatch(getUserPosts(user));
+    }
+  }, [posts.length, dispatch, user]);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
 
   return (
     <>
