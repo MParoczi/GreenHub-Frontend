@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
+import Pagination from "@material-ui/lab/Pagination";
 import AddCircleTwoToneIcon from "@material-ui/icons/AddCircleTwoTone";
 import PropTypes from "prop-types";
 import PostModal from "./PostModal";
@@ -82,6 +83,11 @@ function Posts({ classes }) {
             <AddCircleTwoToneIcon />
           </IconButton>
         </Tooltip>
+        <Pagination
+          count={Math.ceil(posts.length / 5)}
+          variant="outlined"
+          shape="rounded"
+        />
       </Paper>
       <PostModal
         classes={classes}
