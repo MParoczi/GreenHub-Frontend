@@ -16,6 +16,7 @@ function Posts({ classes }) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [errors, setErrors] = useState({});
+  const [post, setPost] = useState({});
 
   const handleOpen = () => {
     setOpen(true);
@@ -26,8 +27,6 @@ function Posts({ classes }) {
     setErrors({});
     setPost({});
   };
-
-  const [post, setPost] = useState({});
 
   const handleChange = event => {
     const { name, value } = event.target;
