@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import { ThemeProvider } from "@material-ui/styles";
 import { defaultMaterialTheme } from "./profilePageStyle";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import PostCard from "./PostCard";
 
 function Posts({ classes }) {
   const user = useSelector(state => state.loggedInUser);
@@ -95,6 +96,9 @@ function Posts({ classes }) {
                 <AddCircleTwoToneIcon />
               </IconButton>
             </Tooltip>
+            {posts.map(post => (
+              <PostCard post={post} user={user} key={post.id} />
+            ))}
             <Pagination
               count={Math.ceil(posts.length / 5)}
               variant="outlined"
