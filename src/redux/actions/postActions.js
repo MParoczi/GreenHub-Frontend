@@ -14,6 +14,10 @@ function deletePostSuccess(post) {
   return { type: types.DELETE_POST_SUCCESS, post };
 }
 
+function updatePostSuccess(post) {
+  return { type: types.UPDATE_POST_SUCCESS, post };
+}
+
 export function addPost(post, token) {
   return function(dispatch) {
     dispatch(beginApiCall());
@@ -46,6 +50,19 @@ export function deletePost(token, postId) {
     return postApi
       .deletePost(token, postId)
       .then(post => dispatch(deletePostSuccess(post)))
+      .catch(error => {
+        dispatch(apiCallError());
+        throw error;
+      });
+  };
+}
+
+export function updatePost(post, token) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return postApi
+      .updatePost(post, token)
+      .then(post => dispatch(updatePostSuccess(post)))
       .catch(error => {
         dispatch(apiCallError());
         throw error;
