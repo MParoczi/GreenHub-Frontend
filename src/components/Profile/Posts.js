@@ -89,7 +89,7 @@ function Posts({ classes }) {
   return (
     <>
       <Paper elevation={3} className={classes.paper}>
-        <Typography className={classes.title}>My posts</Typography>
+        <Typography className={classes.title}>Posts</Typography>
         {loading ? (
           <ThemeProvider theme={defaultMaterialTheme}>
             <CircularProgress color="secondary" />

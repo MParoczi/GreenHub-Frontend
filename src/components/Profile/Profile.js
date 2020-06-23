@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 function Profile({ user, openPicture, closePicture, visible, classes }) {
   return (
     <Paper elevation={3} className={classes.paper}>
-      <Typography className={classes.title}>My profile</Typography>
+      <Typography className={classes.title}>Profile</Typography>
       <Avatar
         alt="profile-pic"
         src={user.profilePicture ? user.profilePicture : defaultProfilePic}
