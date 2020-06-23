@@ -8,7 +8,7 @@ export default function postReducer(state = initialState.posts, action) {
     case types.GET_USER_POSTS_SUCCESS:
       return action.posts.payload;
     case types.DELETE_POST_SUCCESS:
-      return state.map(post => post.id !== action.post.payload.id);
+      return state.filter(post => post.id !== action.post.payload.id);
     default:
       return state;
   }
