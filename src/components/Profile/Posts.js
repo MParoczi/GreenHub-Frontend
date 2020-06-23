@@ -99,6 +99,7 @@ function Posts({ classes }) {
               count={Math.ceil(posts.length / 5)}
               variant="outlined"
               shape="rounded"
+              className={classes.pagination}
             />
           </>
         )}

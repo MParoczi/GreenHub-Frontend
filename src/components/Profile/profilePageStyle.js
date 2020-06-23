@@ -98,6 +98,10 @@ export const useStyle = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       margin: 0
     }
+  },
+  pagination: {
+    display: "flex",
+    justifyContent: "center"
   }
 }));
 
