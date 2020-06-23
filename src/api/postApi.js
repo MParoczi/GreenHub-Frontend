@@ -28,3 +28,16 @@ export function getUserPosts(user) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function deletePost(token, postId) {
+  return fetch(`${mainApiEndPoint}post/delete/${postId}`, {
+    method: "DELETE",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    credentials: "include"
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
