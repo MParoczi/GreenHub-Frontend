@@ -70,7 +70,9 @@ function Posts({ classes }) {
 
   const getPosts = useCallback(() => {
     if (posts.length === 0) {
-      dispatch(getUserPosts(user));
+      dispatch(getUserPosts(user))
+        .then(() => console.log("Posts are loaded"))
+        .catch(() => console.log("Posts couldn't be loaded"));
     }
   }, [posts.length, dispatch, user]);
 
