@@ -1,6 +1,8 @@
 # Legato - Frontend
 Welcome to the GitHub repository of the Legato project's frontend!
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ffa6f67f-efba-4199-9173-2237a4c96e1b/deploy-status)](https://app.netlify.com/sites/legato-social/deploys)
+
 ## The project
 ### The idea
 The Legato project aims to create a community space where registered users can find each other based on their music
