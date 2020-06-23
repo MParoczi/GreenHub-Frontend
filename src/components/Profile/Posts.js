@@ -10,10 +10,14 @@ import PropTypes from "prop-types";
 import PostModal from "./PostModal";
 import { addPost, getUserPosts } from "../../redux/actions/postActions";
 import { toast } from "react-toastify";
+import { ThemeProvider } from "@material-ui/styles";
+import { defaultMaterialTheme } from "./profilePageStyle";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Posts({ classes }) {
   const user = useSelector(state => state.loggedInUser);
   const posts = useSelector(state => state.posts);
+  const loading = useSelector(state => state.apiCallsInProgress);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [errors, setErrors] = useState({});
@@ -78,16 +82,24 @@ function Posts({ classes }) {
     <>
       <Paper elevation={3} className={classes.paper}>
         <Typography className={classes.title}>My posts</Typography>
-        <Tooltip title="Add new post" onClick={handleOpen}>
-          <IconButton>
-            <AddCircleTwoToneIcon />
-          </IconButton>
-        </Tooltip>
-        <Pagination
-          count={Math.ceil(posts.length / 5)}
-          variant="outlined"
-          shape="rounded"
-        />
+        {loading ? (
+          <ThemeProvider theme={defaultMaterialTheme}>
+            <CircularProgress color="secondary" />
+          </ThemeProvider>
+        ) : (
+          <>
+            <Tooltip title="Add new post" onClick={handleOpen}>
+              <IconButton>
+                <AddCircleTwoToneIcon />
+              </IconButton>
+            </Tooltip>
+            <Pagination
+              count={Math.ceil(posts.length / 5)}
+              variant="outlined"
+              shape="rounded"
+            />
+          </>
+        )}
       </Paper>
       <PostModal
         classes={classes}
