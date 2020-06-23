@@ -23,10 +23,8 @@ The frontend of the Legato social network were created with the following techno
  * **Babel** which enables the user interface to use the latest technologies of JavaScript
  * **Material UI** as the main source of ready-to-use React components
  
-## How to run
-To run the application, simply navigate to the source folder of the project and run ```npm start``` on the command line
-interface. This requires [Node.js](https://nodejs.org/en/) to be installed on your system. The web server will host on
-```http://localhost:3000```.
+## Demo
+The deployed version of the React app is available at the following link: [Legato's Frontend](https://legato-social.netlify.app/)
 
 ## Credits
 The project was created during the period of my studies at Codecool Ltd. in 2020. **It is still under development!**
