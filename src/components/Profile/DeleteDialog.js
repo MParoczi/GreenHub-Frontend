@@ -7,7 +7,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import PropTypes from "prop-types";
 
-function DeleteDialog({ post, open, handleClose }) {
+function DeleteDialog({ post, open, handleClose, classes }) {
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Deleting {post.title}</DialogTitle>
@@ -17,10 +17,18 @@ function DeleteDialog({ post, open, handleClose }) {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={handleClose} color="primary">
+        <Button
+          autoFocus
+          onClick={handleClose}
+          className={classes.cancelButton}
+        >
           Cancel
         </Button>
-        <Button onClick={handleClose} color="secondary" autoFocus>
+        <Button
+          autoFocus
+          onClick={handleClose}
+          className={classes.deleteButton}
+        >
           Delete
         </Button>
       </DialogActions>
@@ -31,7 +39,8 @@ function DeleteDialog({ post, open, handleClose }) {
 DeleteDialog.propTypes = {
   post: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired
+  handleClose: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default DeleteDialog;

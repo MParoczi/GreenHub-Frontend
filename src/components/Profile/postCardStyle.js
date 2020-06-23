@@ -39,5 +39,19 @@ export const useStyle = makeStyles(theme => ({
   content: {
     textAlign: "left",
     color: "#383e42"
+  },
+  deleteButton: {
+    color: "#FF004C",
+    backgroundColor: "#383e42",
+    "&:hover": {
+      background: "#676D72"
+    }
+  },
+  cancelButton: {
+    color: "#0BDA51",
+    backgroundColor: "#383e42",
+    "&:hover": {
+      background: "#676D72"
+    }
   }
 }));

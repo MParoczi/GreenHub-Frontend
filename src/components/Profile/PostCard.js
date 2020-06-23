@@ -74,6 +74,7 @@ function PostCard({ post, user }) {
         post={post}
         handleClose={closeDeleteDialog}
         open={deleteDialog}
+        classes={classes}
       />
     </>
   );
