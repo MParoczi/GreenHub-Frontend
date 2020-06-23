@@ -12,6 +12,9 @@ This repository contains the source files of Legato's main user interface which 
 backend. It is a one-pager responsive website which aims to provide the highest possible level of user experience made
 available by current state-of-the-art developer technologies.
 
+### The backend
+The backend's source code is available at the following GitHub repository: [Legato Backend](https://github.com/MParoczi/Legato-Backend)
+
 ### The technologies
 The frontend of the Legato social network were created with the following technologies:
  * Main web technologies:
