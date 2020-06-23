@@ -73,6 +73,7 @@ export function logoutUser(user) {
 
 export function refreshToken() {
   return function(dispatch) {
+    dispatch(beginApiCall());
     return userApi
       .refreshToken()
       .then(token => dispatch(refreshTokenSuccess(token)))
