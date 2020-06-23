@@ -13,10 +13,14 @@ import Avatar from "@material-ui/core/Avatar";
 import defaultProfilePic from "../../images/default_profile.png";
 import { useStyle } from "./postCardStyle";
 import DeleteDialog from "./DeleteDialog";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../redux/actions/postActions";
+import { toast } from "react-toastify";
 
 function PostCard({ post, user }) {
   const classes = useStyle();
   const [deleteDialog, setDeleteDialog] = useState(false);
+  const dispatch = useDispatch();
 
   const openDeleteDialog = () => {
     setDeleteDialog(true);
@@ -24,6 +28,17 @@ function PostCard({ post, user }) {
 
   const closeDeleteDialog = () => {
     setDeleteDialog(false);
+  };
+
+  const handlePostDelete = () => {
+    dispatch(deletePost(user.token.token, post.id))
+      .then(response => {
+        toast.success(response.post.message);
+        setDeleteDialog(false);
+      })
+      .catch(response => {
+        toast.error(response.message);
+      });
   };
 
   return (
@@ -72,6 +87,7 @@ function PostCard({ post, user }) {
       </Card>
       <DeleteDialog
         post={post}
+        handleDeletingPost={handlePostDelete}
         handleClose={closeDeleteDialog}
         open={deleteDialog}
         classes={classes}
