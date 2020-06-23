@@ -41,3 +41,16 @@ export function deletePost(token, postId) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function updatePost(post, token) {
+  return fetch(`${mainApiEndPoint}post/put/${post.id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    credentials: "include"
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
