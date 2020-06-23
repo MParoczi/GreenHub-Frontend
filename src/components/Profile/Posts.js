@@ -23,6 +23,7 @@ function Posts({ classes }) {
   const [open, setOpen] = useState(false);
   const [errors, setErrors] = useState({});
   const [post, setPost] = useState({});
+  const [page, setPage] = useState(1);
 
   const handleOpen = () => {
     setOpen(true);
@@ -69,6 +70,10 @@ function Posts({ classes }) {
       });
   };
 
+  const handlePaging = (event, value) => {
+    setPage(value);
+  };
+
   const getPosts = useCallback(() => {
     if (posts.length === 0) {
       dispatch(getUserPosts(user))
@@ -96,14 +101,16 @@ function Posts({ classes }) {
                 <AddCircleTwoToneIcon />
               </IconButton>
             </Tooltip>
-            {posts.map(post => (
+            {posts.slice((page - 1) * 5, page * 5).map(post => (
               <PostCard post={post} user={user} key={post.id} />
             ))}
             <Pagination
               count={Math.ceil(posts.length / 5)}
+              page={page}
               variant="outlined"
               shape="rounded"
               className={classes.pagination}
+              onChange={handlePaging}
             />
           </>
         )}
