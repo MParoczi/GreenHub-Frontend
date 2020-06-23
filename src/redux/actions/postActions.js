@@ -10,6 +10,10 @@ function getUserPostsSuccess(posts) {
   return { type: types.GET_USER_POSTS_SUCCESS, posts };
 }
 
+function deletePostSuccess(post) {
+  return { type: types.DELETE_POST_SUCCESS, post };
+}
+
 export function addPost(post, token) {
   return function(dispatch) {
     dispatch(beginApiCall());
@@ -29,6 +33,19 @@ export function getUserPosts(user) {
     return postApi
       .getUserPosts(user)
       .then(posts => dispatch(getUserPostsSuccess(posts)))
+      .catch(error => {
+        dispatch(apiCallError());
+        throw error;
+      });
+  };
+}
+
+export function deletePost(token, postId) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return postApi
+      .deletePost(token, postId)
+      .then(post => dispatch(deletePostSuccess(post)))
       .catch(error => {
         dispatch(apiCallError());
         throw error;
