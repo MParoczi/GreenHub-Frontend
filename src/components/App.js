@@ -92,7 +92,17 @@ function App() {
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
-      <ToastContainer autoClose={6000} hideProgressBar />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
     </div>
   );
 }
