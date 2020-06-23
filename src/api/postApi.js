@@ -49,6 +49,7 @@ export function updatePost(post, token) {
       "content-type": "application/json",
       Authorization: `Bearer ${token}`
     },
+    body: JSON.stringify(post),
     credentials: "include"
   })
     .then(handleResponse)
