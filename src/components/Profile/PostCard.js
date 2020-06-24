@@ -100,7 +100,7 @@ function PostCard({ post, user }) {
       />
       <PostModal
         classes={classes}
-        setOpen={handleOpen}
+        setOpen={setOpen}
         user={user}
         open={open}
         postToEdit={post}
