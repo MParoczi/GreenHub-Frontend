@@ -64,15 +64,31 @@ function PostCard({ post, user }) {
               <Typography className={classes.title}>{post.title}</Typography>
             }
             subheader={
-              <Typography className={classes.date}>
-                {new Intl.DateTimeFormat("en-GB", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                  hour: "numeric",
-                  minute: "numeric"
-                }).format(new Date(post.dateOfCreation))}
-              </Typography>
+              <>
+                <Typography className={classes.date}>
+                  {new Intl.DateTimeFormat("en-GB", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric"
+                  }).format(new Date(post.dateOfCreation))}
+                </Typography>
+                {post.dateOfEdit ? (
+                  <Typography className={classes.date}>
+                    <strong>Edited: </strong>
+                    {new Intl.DateTimeFormat("en-GB", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      hour: "numeric",
+                      minute: "numeric"
+                    }).format(new Date(post.dateOfEdit))}
+                  </Typography>
+                ) : (
+                  ""
+                )}
+              </>
             }
             className={classes.header}
           />
