@@ -17,7 +17,7 @@ import {
 } from "../redux/actions/userActions";
 import PrivateRoute from "./common/PrivateRoute/PrivateRoute";
 import Home from "./Home/Home";
-import Profile from "./Profile/Profile";
+import ProfilePage from "./Profile/ProfilePage";
 
 function App() {
   const classes = useStyle();
@@ -86,13 +86,23 @@ function App() {
           path="/profile"
           redirect="/login"
           user={user.token !== undefined}
-          component={Profile}
+          component={ProfilePage}
         />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />
       </Switch>
       <Footer />
-      <ToastContainer autoClose={6000} hideProgressBar />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
     </div>
   );
 }

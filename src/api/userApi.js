@@ -1,9 +1,8 @@
 import { handleResponse, handleError } from "./apiUtils";
-
-const accountApiUrl = "https://legato-social.herokuapp.com/api/account/";
+import { mainApiEndPoint } from "./apiConstants";
 
 export function getCurrentUser() {
-  return fetch(`${accountApiUrl}getCurrentUser`, {
+  return fetch(`${mainApiEndPoint}account/getCurrentUser`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     credentials: "include"
@@ -13,7 +12,7 @@ export function getCurrentUser() {
 }
 
 export function loginUser(user) {
-  return fetch(`${accountApiUrl}login`, {
+  return fetch(`${mainApiEndPoint}account/login`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user),
@@ -24,7 +23,7 @@ export function loginUser(user) {
 }
 
 export function logoutUser(user) {
-  return fetch(`${accountApiUrl}logout`, {
+  return fetch(`${mainApiEndPoint}account/logout`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user),
@@ -35,7 +34,7 @@ export function logoutUser(user) {
 }
 
 export function refreshToken() {
-  return fetch(`${accountApiUrl}refreshToken`, {
+  return fetch(`${mainApiEndPoint}account/refreshToken`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     credentials: "include"
@@ -51,7 +50,7 @@ export function getCountries() {
 }
 
 export function registerUser(user) {
-  return fetch(`${accountApiUrl}register`, {
+  return fetch(`${mainApiEndPoint}account/register`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
@@ -61,7 +60,7 @@ export function registerUser(user) {
 }
 
 export function changeProfilePicture(user) {
-  return fetch(`${accountApiUrl}changeProfilePicture`, {
+  return fetch(`${mainApiEndPoint}account/changeProfilePicture`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
