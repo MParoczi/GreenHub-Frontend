@@ -11,14 +11,15 @@ import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { ThemeProvider } from "@material-ui/styles";
-import { defaultMaterialTheme } from "./profilePageStyle";
+import { defaultMaterialTheme, useStyle } from "./profilePageStyle";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { addPost } from "../../redux/actions/postActions";
+import { addPost, updatePost } from "../../redux/actions/postActions";
 import { toast } from "react-toastify";
 
-function PostModal({ classes, open, setOpen, user }) {
+function PostModal({ open, setOpen, user, postToEdit }) {
   const [errors, setErrors] = useState({});
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState(postToEdit ? postToEdit : {});
+  const classes = useStyle();
   const loading = useSelector(state => state.apiCallsInProgress);
   const dispatch = useDispatch();
 
@@ -53,7 +54,11 @@ function PostModal({ classes, open, setOpen, user }) {
     if (!formIsValid()) {
       return;
     }
-    dispatch(addPost({ ...post, userId: user.id }, user.token.token))
+    dispatch(
+      postToEdit
+        ? updatePost(post, user.token.token)
+        : addPost({ ...post, userId: user.id }, user.token.token)
+    )
       .then(response => {
         toast.success(response.post.message);
         handleClose();
@@ -89,7 +94,9 @@ function PostModal({ classes, open, setOpen, user }) {
         >
           <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Typography className={classes.title}>Add new post</Typography>
+              <Typography className={classes.title}>
+                {postToEdit ? "Edit post" : "Add new post"}
+              </Typography>
               {loading ? (
                 <ThemeProvider theme={defaultMaterialTheme}>
                   <CircularProgress color="secondary" />
@@ -98,6 +105,7 @@ function PostModal({ classes, open, setOpen, user }) {
                 <form onSubmit={handleSubmit}>
                   <TextField
                     name="title"
+                    value={post.title}
                     label="Title"
                     id="post-title-input"
                     variant="outlined"
@@ -108,6 +116,7 @@ function PostModal({ classes, open, setOpen, user }) {
                   />
                   <TextField
                     name="content"
+                    value={post.content}
                     label="Content"
                     id="post-content-input"
                     multiline
@@ -145,10 +154,9 @@ function PostModal({ classes, open, setOpen, user }) {
 }
 
 PostModal.propTypes = {
-  classes: PropTypes.object.isRequired,
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
-  post: PropTypes.object,
+  postToEdit: PropTypes.object,
   user: PropTypes.object.isRequired
 };
 
