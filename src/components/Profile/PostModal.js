@@ -97,56 +97,50 @@ function PostModal({ open, setOpen, user, postToEdit }) {
               <Typography className={classes.title}>
                 {postToEdit ? "Edit post" : "Add new post"}
               </Typography>
-              {loading ? (
-                <ThemeProvider theme={defaultMaterialTheme}>
-                  <CircularProgress color="secondary" />
-                </ThemeProvider>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <TextField
-                    name="title"
-                    value={post.title}
-                    label="Title"
-                    id="post-title-input"
-                    multiline
-                    rows={1}
-                    variant="outlined"
-                    onChange={handleChange}
-                    error={errors.title !== undefined}
-                    helperText={errors.title}
-                    className={classes.textField}
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  name="title"
+                  value={post.title}
+                  label="Title"
+                  id="post-title-input"
+                  multiline
+                  rows={1}
+                  variant="outlined"
+                  onChange={handleChange}
+                  error={errors.title !== undefined}
+                  helperText={errors.title}
+                  className={classes.textField}
+                />
+                <TextField
+                  name="content"
+                  value={post.content}
+                  label="Content"
+                  id="post-content-input"
+                  multiline
+                  rows={6}
+                  variant="outlined"
+                  onChange={handleChange}
+                  error={errors.content !== undefined}
+                  helperText={errors.content}
+                  className={classes.textField}
+                />
+                <Box>
+                  <input
+                    id="register-user"
+                    type="submit"
+                    className={classes.input}
                   />
-                  <TextField
-                    name="content"
-                    value={post.content}
-                    label="Content"
-                    id="post-content-input"
-                    multiline
-                    rows={6}
-                    variant="outlined"
-                    onChange={handleChange}
-                    error={errors.content !== undefined}
-                    helperText={errors.content}
-                    className={classes.textField}
-                  />
-                  <Box>
-                    <input
-                      id="register-user"
-                      type="submit"
-                      className={classes.input}
-                    />
-                    <label htmlFor="register-user">
-                      <Button
-                        variant="contained"
-                        className={classes.button}
-                        component="span"
-                      >
-                        Submit
-                      </Button>
-                    </label>
-                  </Box>
-                </form>
-              )}
+                  <label htmlFor="register-user">
+                    <Button
+                      variant="contained"
+                      className={classes.button}
+                      component="span"
+                    >
+                      Submit
+                    </Button>
+                  </label>
+                </Box>
+              </form>
             </Paper>
           </Grid>
         </Grid>
