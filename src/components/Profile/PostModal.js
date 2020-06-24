@@ -9,10 +9,8 @@ import TextField from "@material-ui/core/TextField";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
-import { ThemeProvider } from "@material-ui/styles";
-import { defaultMaterialTheme, useStyle } from "./profilePageStyle";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { useDispatch } from "react-redux";
+import { useStyle } from "./profilePageStyle";
 import { addPost, updatePost } from "../../redux/actions/postActions";
 import { toast } from "react-toastify";
 
@@ -20,7 +18,6 @@ function PostModal({ open, setOpen, user, postToEdit }) {
   const [errors, setErrors] = useState({});
   const [post, setPost] = useState(postToEdit ? postToEdit : {});
   const classes = useStyle();
-  const loading = useSelector(state => state.apiCallsInProgress);
   const dispatch = useDispatch();
 
   const handleClose = () => {
