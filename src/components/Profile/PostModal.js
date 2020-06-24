@@ -26,7 +26,7 @@ function PostModal({ open, setOpen, user, postToEdit }) {
   const handleClose = () => {
     setOpen(false);
     setErrors({});
-    setPost({});
+    if (!postToEdit) setPost({});
   };
 
   const handleChange = event => {
