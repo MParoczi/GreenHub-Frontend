@@ -16,11 +16,17 @@ import DeleteDialog from "./DeleteDialog";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../redux/actions/postActions";
 import { toast } from "react-toastify";
+import PostModal from "./PostModal";
 
 function PostCard({ post, user }) {
   const classes = useStyle();
   const [deleteDialog, setDeleteDialog] = useState(false);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const openDeleteDialog = () => {
     setDeleteDialog(true);
@@ -79,7 +85,7 @@ function PostCard({ post, user }) {
             </IconButton>
           </Tooltip>
           <Tooltip title="Edit post">
-            <IconButton>
+            <IconButton onClick={handleOpen}>
               <EditTwoToneIcon />
             </IconButton>
           </Tooltip>
@@ -91,6 +97,13 @@ function PostCard({ post, user }) {
         handleClose={closeDeleteDialog}
         open={deleteDialog}
         classes={classes}
+      />
+      <PostModal
+        classes={classes}
+        setOpen={handleOpen}
+        user={user}
+        open={open}
+        postToEdit={post}
       />
     </>
   );
