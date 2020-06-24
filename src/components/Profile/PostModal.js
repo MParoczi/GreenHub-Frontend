@@ -108,6 +108,8 @@ function PostModal({ open, setOpen, user, postToEdit }) {
                     value={post.title}
                     label="Title"
                     id="post-title-input"
+                    multiline
+                    rows={1}
                     variant="outlined"
                     onChange={handleChange}
                     error={errors.title !== undefined}
