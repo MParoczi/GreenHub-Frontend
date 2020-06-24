@@ -51,25 +51,24 @@ function Posts({ classes }) {
             <CircularProgress color="secondary" />
           </ThemeProvider>
         ) : (
-          <>
-            <Tooltip title="Add new post" onClick={handleOpen}>
-              <IconButton>
-                <AddCircleTwoToneIcon />
-              </IconButton>
-            </Tooltip>
-            {posts.slice((page - 1) * 5, page * 5).map(post => (
-              <PostCard post={post} user={user} key={post.id} />
-            ))}
-            <Pagination
-              count={Math.ceil(posts.length / 5)}
-              page={page}
-              variant="outlined"
-              shape="rounded"
-              className={classes.pagination}
-              onChange={handlePaging}
-            />
-          </>
+          ""
         )}
+        <Tooltip title="Add new post" onClick={handleOpen}>
+          <IconButton>
+            <AddCircleTwoToneIcon />
+          </IconButton>
+        </Tooltip>
+        {posts.slice((page - 1) * 5, page * 5).map(post => (
+          <PostCard post={post} user={user} key={post.id} />
+        ))}
+        <Pagination
+          count={Math.ceil(posts.length / 5)}
+          page={page}
+          variant="outlined"
+          shape="rounded"
+          className={classes.pagination}
+          onChange={handlePaging}
+        />
       </Paper>
       <PostModal classes={classes} setOpen={setOpen} open={open} user={user} />
     </>
