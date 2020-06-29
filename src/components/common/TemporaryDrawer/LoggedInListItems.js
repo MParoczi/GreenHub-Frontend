@@ -8,6 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import HomeTwoTone from "@material-ui/icons/HomeTwoTone";
 import MeetingRoomTwoToneIcon from "@material-ui/icons/MeetingRoomTwoTone";
+import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import InfoTwoTone from "@material-ui/icons/InfoTwoTone";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/actions/userActions";
@@ -35,6 +36,14 @@ function LoggedOutListItems({ classes, toggleDrawer, user }) {
           </ListItem>
         </Link>
         <Divider />
+        <Link to="/profile">
+          <ListItem className={classes.listItem}>
+            <ListItemIcon className={classes.icon}>
+              <AccountCircleTwoToneIcon />
+            </ListItemIcon>
+            <ListItemText primary="Profile" className={classes.text} />
+          </ListItem>
+        </Link>
         <ListItem className={classes.listItem} onClick={logout}>
           <ListItemIcon className={classes.icon}>
             <MeetingRoomTwoToneIcon />

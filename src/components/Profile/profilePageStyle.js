@@ -1,4 +1,4 @@
-import { makeStyles, createMuiTheme } from "@material-ui/core";
+import { createMuiTheme, makeStyles } from "@material-ui/core";
 
 export const useStyle = makeStyles(theme => ({
   paper: {
@@ -22,31 +22,49 @@ export const useStyle = makeStyles(theme => ({
       fontSize: "75px"
     }
   },
-  registrationRedirect: {
+  profilePicture: {
+    marginLeft: "auto",
+    marginRight: "auto",
     cursor: "pointer",
-    color: "#383e42",
     "&:hover": {
-      color: "#676D72"
+      opacity: "90%"
     },
     [theme.breakpoints.up("xs")]: {
-      fontSize: "8px"
+      width: "150px",
+      height: "150px"
     },
     [theme.breakpoints.up("sm")]: {
-      fontSize: "9px"
+      width: "200px",
+      height: "200px"
     },
     [theme.breakpoints.up("lg")]: {
-      fontSize: "10px"
+      width: "250px",
+      height: "250px"
     }
   },
-  input: {
-    display: "none"
-  },
-  button: {
-    backgroundColor: "#383e42",
-    color: "#0BDA51",
-    "&:hover": {
-      background: "#676D72"
+  details: {
+    color: "#383e42",
+    marginBottom: "10px",
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "15px"
+    },
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "20px"
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "25px"
     }
+  },
+  modal: {
+    [theme.breakpoints.up("xs")]: {
+      display: "block"
+    },
+    [theme.breakpoints.up("sm")]: {
+      display: "flex"
+    },
+    overflow: "scroll",
+    alignItems: "center",
+    justifyContent: "center"
   },
   textField: {
     marginBottom: "10px",
@@ -60,6 +78,30 @@ export const useStyle = makeStyles(theme => ({
     "& .MuiFormLabel-root.Mui-error": {
       color: "#FF005D"
     }
+  },
+  input: {
+    display: "none"
+  },
+  button: {
+    backgroundColor: "#383e42",
+    color: "#0BDA51",
+    "&:hover": {
+      background: "#676D72"
+    }
+  },
+  modalContainer: {
+    [theme.breakpoints.up("xs")]: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop: "20%"
+    },
+    [theme.breakpoints.up("sm")]: {
+      margin: 0
+    }
+  },
+  pagination: {
+    display: "flex",
+    justifyContent: "center"
   }
 }));
 

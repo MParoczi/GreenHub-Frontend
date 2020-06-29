@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { defaultMaterialTheme, useStyle } from "../common/style/mainStyle";
 import RegistrationForm from "./RegistrationForm";
 import RegistrationGuide from "./RegistrationGuide";
 import { loadCountries, registerUser } from "../../redux/actions/userActions";
@@ -13,6 +12,7 @@ import { registrationFormIsValid } from "../common/registrationLoginCommon/userI
 import formatToBasicDate from "../../utils/dateFormatter";
 import { toast } from "react-toastify";
 import { ThemeProvider } from "@material-ui/styles";
+import { defaultMaterialTheme, useStyle } from "./registrationStyle";
 
 function Registration() {
   const classes = useStyle();

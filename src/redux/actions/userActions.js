@@ -26,6 +26,10 @@ function registerUserSuccess(registeredUser) {
   return { type: types.REGISTER_USER_SUCCESS, registeredUser };
 }
 
+function changeProfilePictureSuccess(loggedInUser) {
+  return { type: types.CHANGE_PROFILE_PICTURE_SUCCESS, loggedInUser };
+}
+
 export function getCurrentUser() {
   return function(dispatch) {
     dispatch(beginApiCall());
@@ -69,6 +73,7 @@ export function logoutUser(user) {
 
 export function refreshToken() {
   return function(dispatch) {
+    dispatch(beginApiCall());
     return userApi
       .refreshToken()
       .then(token => dispatch(refreshTokenSuccess(token)))
@@ -97,6 +102,19 @@ export function registerUser(user) {
     return userApi
       .registerUser(user)
       .then(registeredUser => dispatch(registerUserSuccess(registeredUser)))
+      .catch(error => {
+        dispatch(apiCallError());
+        throw error;
+      });
+  };
+}
+
+export function changeProfilePicture(user) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return userApi
+      .changeProfilePicture(user)
+      .then(loggedInUser => dispatch(changeProfilePictureSuccess(loggedInUser)))
       .catch(error => {
         dispatch(apiCallError());
         throw error;
