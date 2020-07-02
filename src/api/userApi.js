@@ -72,3 +72,16 @@ export function changeProfilePicture(user) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function getUsers(user) {
+  return fetch(`${mainApiEndPoint}account/getUsers`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${user.token.token}`
+    },
+    credentials: "include"
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
