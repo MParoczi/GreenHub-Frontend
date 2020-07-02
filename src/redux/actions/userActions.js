@@ -30,6 +30,10 @@ function changeProfilePictureSuccess(loggedInUser) {
   return { type: types.CHANGE_PROFILE_PICTURE_SUCCESS, loggedInUser };
 }
 
+function getUsersSuccess(users) {
+  return { type: types.GET_USERS_SUCCESS, users };
+}
+
 export function getCurrentUser() {
   return function(dispatch) {
     dispatch(beginApiCall());
@@ -115,6 +119,19 @@ export function changeProfilePicture(user) {
     return userApi
       .changeProfilePicture(user)
       .then(loggedInUser => dispatch(changeProfilePictureSuccess(loggedInUser)))
+      .catch(error => {
+        dispatch(apiCallError());
+        throw error;
+      });
+  };
+}
+
+export function getUsers(user) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return userApi
+      .getUsers(user)
+      .then(users => dispatch(getUsersSuccess(users)))
       .catch(error => {
         dispatch(apiCallError());
         throw error;
