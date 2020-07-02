@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { useStyle } from "./homeStyle";
 import { getUsers } from "../../redux/actions/userActions";
+import UserThumbnail from "./UserThumbnail";
 
 function Home() {
   const classes = useStyle();
@@ -27,7 +28,9 @@ function Home() {
       <Grid item xs={11} md={10} lg={9} className={classes.row}>
         <Paper elevation={3} className={classes.paper}>
           <Typography className={classes.title}>Home Page</Typography>
-          Under development
+          {users.map(user => (
+            <UserThumbnail user={user} key={user.id} />
+          ))}
         </Paper>
       </Grid>
     </Grid>
