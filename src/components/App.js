@@ -88,6 +88,13 @@ function App() {
           user={user.token !== undefined}
           component={ProfilePage}
         />
+        <PrivateRoute
+          exact
+          path="/profile/:slug"
+          redirect="/login"
+          user={user.token !== undefined}
+          component={ProfilePage}
+        />
         <Route path="/about" component={About} />
         <Route component={PageNotFound} />
       </Switch>
